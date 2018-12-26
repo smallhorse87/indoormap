@@ -23,7 +23,7 @@
 #import "YCMapSearchCell.h"
 #import "YCFavoriteListView.h"
 
-@interface YCIndoorSearchViewController ()<UINavigationControllerDelegate>
+@interface YCIndoorSearchViewController ()<UINavigationControllerDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     YCFavoriteListView   *_favoriteListView;
 
@@ -182,14 +182,24 @@
 
 - (void)buildTableView
 {
-    self.tableView.frame               = CGRectMake(12, 147, kScreenWidth-(12*2), kScreenHeight - 147);
+    // Do any additional setup after loading the view.
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(12, 147, kScreenWidth-(12*2), kScreenHeight - 147) style:UITableViewStylePlain];
     self.tableView.contentInset        = UIEdgeInsetsMake(0, 0, 20, 0);
     self.tableView.rowHeight           = 56.0;
-    self.tableView.backgroundColor     = kColorPageBg;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-
     self.tableView.showsVerticalScrollIndicator = NO;
+    self.tableView.dataSource = self;
+    self.tableView.delegate   = self;
+    [self.view addSubview:self.tableView];
+    self.tableView.backgroundColor = kColorPageBg;
+    self.view.backgroundColor = kColorPageBg;
     
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+
     //表格外形
     [self.tableView setSeparatorColor:kColorSeparator];
     //stony debug [self.tableView isw_noSeparator];
