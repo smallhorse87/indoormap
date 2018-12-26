@@ -202,7 +202,7 @@
 
     //表格外形
     [self.tableView setSeparatorColor:kColorSeparator];
-    //stony debug [self.tableView isw_noSeparator];
+    [self.tableView isw_noSeparator];
 }
 
 #pragma mark - pop/dismiss UI

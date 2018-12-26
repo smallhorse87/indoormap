@@ -65,7 +65,7 @@
         make.leading.equalTo(searchBgView).offset(1);
         make.centerY.equalTo(searchBgView);
     }];
-    
+
     UITextField *searchInput = [[UITextField alloc] init];
     [searchInput addTarget:self action:@selector(keywordInputDidChange:) forControlEvents:UIControlEventEditingChanged];
     searchInput.clearButtonMode = UITextFieldViewModeWhileEditing;
