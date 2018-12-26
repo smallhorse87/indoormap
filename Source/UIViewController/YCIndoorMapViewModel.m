@@ -110,8 +110,11 @@
         //模拟定位点，上线前将其注释掉
         _currentSimulatingLocation = [[IbeaconLocation alloc] init];
         _currentSimulatingLocation.floorID    = @"F1";
-        _currentSimulatingLocation.location_x = 117.0969375;
-        _currentSimulatingLocation.location_y = -78.134500000000003;
+//影秀城
+//        _currentSimulatingLocation.location_x = 117.0969375;
+//        _currentSimulatingLocation.location_y = -78.134500000000003;
+        _currentSimulatingLocation.location_x = 170.3909912109375;
+        _currentSimulatingLocation.location_y = 173.81600952148438;
         //debug end
         
         [self startLocating];

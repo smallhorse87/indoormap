@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class IbeaconLocation;
+@class IbeaconLocation, RTLbs3DNavigationInfo;
 
 @interface RealtimeGuide : NSObject
 
@@ -23,6 +23,8 @@
 - (BOOL)pass1stFloorPlatform:(NSArray*)navigationInfos;
 
 - (BOOL)pass3rdFloorPlatform:(NSArray*)navigationInfos;
+
++ (NSString*)formateInstruction:(RTLbs3DNavigationInfo*)inflection allDistance:(float)distance;
 
 @property (nonatomic, readonly) NSString         *navigationInstruct;
 

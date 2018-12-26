@@ -168,4 +168,20 @@
 
 }
 
++ (NSString*)formateInstruction:(RTLbs3DNavigationInfo*)inflection allDistance:(float)distance
+{
+    if(inflection==nil)
+        return nil;
+
+    if(distance==0) {
+        return @"导航结束|已到达终点附近";
+    }
+
+    return [NSString stringWithFormat:@"直行约%ld米|在%@处%@",
+            (long)distance,
+            inflection.poiName,
+            inflection.leftORright];
+
+}
+
 @end

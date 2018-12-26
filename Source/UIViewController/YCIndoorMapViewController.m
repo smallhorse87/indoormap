@@ -589,6 +589,14 @@
     
 }
 
+- (void)guideDidChange:(NSString*)guideInstruct
+{
+    if(_viewModel.guideMode!=YCGuideModeRealtimeGuiding)
+        return;
+
+    [_guidingBottomView updateContent:guideInstruct];
+}
+
 - (void)mapDidTap:(RTLbs3DAnnotation*)tappedAnnotation
 {
     tappedAnnotation.iconImage = [UIImage imageNamed:[self pinIcon:tappedAnnotation.annoTitle]];
@@ -664,7 +672,7 @@
 
 - (void)navigationInstructValueUpdated
 {
-    [_guidingBottomView updateContent:_viewModel.navigationInstruct];
+
 }
 
 - (void)guideModeValueUpdated
@@ -814,6 +822,10 @@
         
         _mapView.floorDidChange = ^(NSString *floor) {
             [weakSelf mapFloorDidChange:floor];
+        };
+        
+        _mapView.guideDidChange = ^(NSString *txt) {
+            [weakSelf guideDidChange:txt];
         };
     }
 

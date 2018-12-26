@@ -16,12 +16,7 @@
 
 #import "IndoorMapDefines.h"
 
-#define kColor_d3d3d3   UIColorFromRGB(0xd3d3d3)
-#define kColor_E9E9E9   UIColorFromRGB(0xE9E9E9)
-#define kColor_E7F1F9   UIColorFromRGB(0xE7F1F9)
-#define kColor_FEBFD7   UIColorFromRGB(0xFEBFD7)
-#define kColor_F8F6F2   UIColorFromRGB(0xF8F6F2)
-
+#import "RealtimeGuide.h"
 
 #define kScale 1500
 
@@ -62,6 +57,7 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
 {
     self.compassPosition   = CGPointMake(33, 96);
     self.navLineWide       = 30;
+    self.navigationMode    = RTLbsRoutePlanningModeNavigation;
 }
 
 #pragma mark - map
@@ -106,10 +102,11 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
 
 }
 
-//- (void) mapViewInflectionPoint:(RTLbs3DNavigationInfo*)inflection allDistance:(float)distance isEndPoi:(BOOL)endPoi
-//{
-//    NSLog(@"松：mapViewInflectionPoint %@ %lf %@",inflection, distance, endPoi?@"YES":@"NO");
-//}
+- (void) mapViewInflectionPoint:(RTLbs3DNavigationInfo*)inflection allDistance:(float)distance isEndPoi:(BOOL)endPoi
+{
+    if(_guideDidChange)
+        _guideDidChange([RealtimeGuide formateInstruction:inflection allDistance:distance]);
+}
 
 - (void) mapViewLoadedFailed:(RTLbsMapView*)rtmapView error:(NSString *)errorInfo
 {

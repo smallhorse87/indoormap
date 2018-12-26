@@ -10,8 +10,6 @@
 
 #import "ISWCategory.h"
 
-#import <AVFoundation/AVFoundation.h>
-
 #import "Masonry.h"
 
 #import "IndoorMapDefines.h"
@@ -19,11 +17,7 @@
 @interface YCGuidingBottomView()
 {
     UILabel *_roughPromptLable;
-    
-    // 合成器 控制播放，暂停
-    AVSpeechSynthesizer    *_synthesizer;
-    // 实例化说话的语言，说中文、英文
-    AVSpeechSynthesisVoice *_voice;
+    UILabel *_detailedPromptLabel;
 }
 
 @end
@@ -42,17 +36,10 @@
 {
     self = [super init];
     if (self) {
-        [self prepareVoice];
+
         [self buildUI];
     }
     return self;
-}
-
-- (void)prepareVoice
-{
-    _voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh_CN"];
-    _synthesizer = [[AVSpeechSynthesizer alloc] init];
-
 }
 
 - (void)buildUI
@@ -62,16 +49,16 @@
 
     WEAKSELF
 
-    UILabel *detailedPromptLabel = [[UILabel alloc] init];
-    detailedPromptLabel.textColor = kColorMajorMap;
-    detailedPromptLabel.font      = [UIFont isw_Pingfang:13 weight:UIFontWeightSemibold];
-    detailedPromptLabel.numberOfLines = 1;
-    [self addSubview:detailedPromptLabel];
-    [detailedPromptLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    _detailedPromptLabel = [[UILabel alloc] init];
+    _detailedPromptLabel.textColor = kColorMajorMap;
+    _detailedPromptLabel.font      = [UIFont isw_Pingfang:13 weight:UIFontWeightSemibold];
+    _detailedPromptLabel.numberOfLines = 1;
+    [self addSubview:_detailedPromptLabel];
+    [_detailedPromptLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(weakSelf);
         make.top.equalTo(weakSelf).offset(12);
     }];
-    detailedPromptLabel.text = @"您当前在F1层，距离目标120米";
+    _detailedPromptLabel.text = @"开始导航";
 
     _roughPromptLable = [[UILabel alloc] init];
     _roughPromptLable.textColor = kColorWhite;
@@ -80,9 +67,9 @@
     [self addSubview:_roughPromptLable];
     [_roughPromptLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(weakSelf);
-        make.top.equalTo(detailedPromptLabel.mas_bottom);
+        make.top.equalTo(_detailedPromptLabel.mas_bottom);
     }];
-    _roughPromptLable.text = @"顺着路线方向走";
+    _roughPromptLable.text = @"路径规划成功";
     
     UIButton *voiceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [voiceBtn setImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_voice_open"] forState:UIControlStateNormal];
@@ -90,33 +77,14 @@
     [self addSubview:voiceBtn];
     [voiceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.width.equalTo(@34);
-        make.left.equalTo(detailedPromptLabel.mas_right).offset(-7);
-        make.centerY.equalTo(detailedPromptLabel);
+        make.left.equalTo(_detailedPromptLabel.mas_right).offset(-7);
+        make.centerY.equalTo(_detailedPromptLabel);
     }];
 }
 
 - (void)voiceBtnPressed
 {
-    static int times = 0;
-    
-    NSString *txt;
-    
-    if(times%3==0) {
-        txt = @"距离目标120米";
-        
-    } else if(times%3==1) {
-        txt = @"您当前在F1层";
-        
-    } else if (times%3==2) {
-        txt = @"您当前在F1层，距离目标120米";
-    }
 
-    times++;
-
-    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:txt];
-    utterance.voice = _voice;
-    utterance.rate = 0.5;
-    [_synthesizer speakUtterance:utterance];
 }
 
 - (void)updateContent:(NSString*)content
@@ -124,10 +92,14 @@
     if(isEmptyString(content))
         return;
 
-    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:content];
-    utterance.voice = _voice;
-    utterance.rate = 0.5;
-    [_synthesizer speakUtterance:utterance];
+    NSArray *contents = [content componentsSeparatedByString:@"|"];
+    
+    if(contents.count!=2)
+        return;
+    
+    _detailedPromptLabel.text = contents[0];
+    
+    _roughPromptLable.text    = contents[1];
 }
 
 @end
