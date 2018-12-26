@@ -8,6 +8,7 @@
 
 #import "YCIndoorMapViewController.h"
 
+#import "IndoorMapContext.h"
 #import "KVOController.h"
 #import "YCIndoorMapViewModel.h"
 
@@ -896,9 +897,8 @@
     if(!_viewModel.flagRealTimeGuidingTriggerred)
         return NO;
 
-//stony debug
-//    if([AppContext getMapCommented])
-//        return NO;
+    if([IndoorMapContext getMapCommented])
+        return NO;
     
     return YES;
 }

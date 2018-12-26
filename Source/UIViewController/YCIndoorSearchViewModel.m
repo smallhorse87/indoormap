@@ -17,7 +17,7 @@
 
 #import "YCDefines.h"
 
-//stony debug #import "AppContext.h"
+#import "IndoorMapContext.h"
 
 @interface YCIndoorSearchViewModel() <RTLbs3DWebServiceDelegate>
 {
@@ -147,12 +147,12 @@
 
 - (void)onSaveSearchHistoryReq:(NSString*)title floor:(NSString*)floor
 {
-    //stony debug [AppContext addIndoorSearchHistory:title floor:floor];
+    [IndoorMapContext addIndoorSearchHistory:title floor:floor];
 }
 
 - (void)onCleanHistoryReq
 {
-    //stony debug [AppContext clearIndoorSearchHistoryList];
+    [IndoorMapContext clearIndoorSearchHistoryList];
 
     self.keyword = nil;
 }
@@ -175,8 +175,7 @@
 
 - (NSArray*)historyPoiArray
 {
-    //stony debug return [AppContext retriveIndoorSearchHistoryList];
-    return nil;
+    return [IndoorMapContext retriveIndoorSearchHistoryList];
 }
 
 #pragma mark - utilities

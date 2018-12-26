@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8107F07621D3702E009E194F /* IndoorMapContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 8107F07521D3702E009E194F /* IndoorMapContext.m */; };
 		8151F50321D30AEA00A5089C /* RealtimeGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4CE21D30AEA00A5089C /* RealtimeGuide.m */; };
 		8151F50421D30AEA00A5089C /* YCFavoriteListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4D021D30AEA00A5089C /* YCFavoriteListView.m */; };
 		8151F50521D30AEA00A5089C /* YCFloorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4D221D30AEA00A5089C /* YCFloorPicker.m */; };
@@ -53,6 +54,8 @@
 		01CC7971770B09A3EC42646C /* Pods-indoormap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-indoormap.release.xcconfig"; path = "Pods/Target Support Files/Pods-indoormap/Pods-indoormap.release.xcconfig"; sourceTree = "<group>"; };
 		3CF7B47B7F0C88699883BA11 /* Pods-indoormap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-indoormap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-indoormap/Pods-indoormap.debug.xcconfig"; sourceTree = "<group>"; };
 		559451933D7A8F28AC9173C8 /* libPods-indoormap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-indoormap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8107F07421D3702E009E194F /* IndoorMapContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndoorMapContext.h; sourceTree = "<group>"; };
+		8107F07521D3702E009E194F /* IndoorMapContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IndoorMapContext.m; sourceTree = "<group>"; };
 		8151F4CD21D30AEA00A5089C /* RealtimeGuide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealtimeGuide.h; sourceTree = "<group>"; };
 		8151F4CE21D30AEA00A5089C /* RealtimeGuide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealtimeGuide.m; sourceTree = "<group>"; };
 		8151F4CF21D30AEA00A5089C /* YCFavoriteListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCFavoriteListView.h; sourceTree = "<group>"; };
@@ -271,6 +274,8 @@
 				8151F51A21D30CCE00A5089C /* BaseCell.h */,
 				8151F51B21D30CCE00A5089C /* BaseCell.m */,
 				8151F51921D30B6B00A5089C /* YCDefines.h */,
+				8107F07421D3702E009E194F /* IndoorMapContext.h */,
+				8107F07521D3702E009E194F /* IndoorMapContext.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -448,6 +453,7 @@
 				8151F51121D30AEA00A5089C /* YCIndoorMapViewModel.m in Sources */,
 				8151F51021D30AEA00A5089C /* YCIndoorMapViewController.m in Sources */,
 				8151F50421D30AEA00A5089C /* YCFavoriteListView.m in Sources */,
+				8107F07621D3702E009E194F /* IndoorMapContext.m in Sources */,
 				8151F50E21D30AEA00A5089C /* YCPinNavBar.m in Sources */,
 				818ACF6821D3007B00138683 /* main.m in Sources */,
 				8151F50921D30AEA00A5089C /* YCIndoorMapView.m in Sources */,

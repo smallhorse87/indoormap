@@ -23,6 +23,8 @@
 
 #import "ISWCategory.h"
 
+#import "IndoorMapContext.h"
+
 @interface YCIndoorMapViewModel() <CBCentralManagerDelegate>
 {
     RtmapApi    *_myapi;
@@ -34,10 +36,11 @@
     
     RTLbsMapView    *_mapView;
     
-    //debug purpose
+    //debug purpose begin
     IbeaconLocation *_currentSimulatingLocation;
     NSMutableArray  *_simulatingLocations;
     int             _simulatingLocIdx;
+    //debug purpose end
     
     CBCentralManager *_bluetoothManager;
     
@@ -229,7 +232,7 @@
 
 - (void)onFloorInfosReq
 {
-    NSArray *floorArr = nil;//stony debug [AppContext retriveFloorList:Indoormap_BuildId];
+    NSArray *floorArr = [IndoorMapContext retriveFloorList:Indoormap_BuildId];
     
     if(floorArr.count!=0) {
         self.floorArr = floorArr;
@@ -253,7 +256,7 @@
         weakSelf.floorArr = floorArr;
         floorsApi = nil;
 
-        //stony debug [AppContext cacheFloorList:Indoormap_BuildId floorArr:floorArr];
+        [IndoorMapContext cacheFloorList:Indoormap_BuildId floorArr:floorArr];
 
     } fail:^(NSString *error) {
         floorsApi = nil;
@@ -466,7 +469,7 @@
              return;
 
 //         [_realtimeGuide checkApproachingKeyNavInfo:_location];
-         
+
      } failure:^(NSError *error) {
 //         static int dbg_retry_times = 0;
 //
