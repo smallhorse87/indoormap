@@ -20,9 +20,6 @@
 
 #define kScale 1500
 
-//self.millimetersPerPixel -> 就是zoomlevel，在scale为1500时，其范围是396~40
-int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
-
 @interface YCIndoorMapView()
 {
     RTLbs3DAnnotation *_currentAnnotation;
@@ -69,7 +66,6 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
 - (void) mapViewDidTapOnMapPoint:(CGPoint)point poiName:(NSString*)poiName poiID:(NSString*)ID shapType:(NSInteger)type
 {
     NSLog(@"松：didTapOnMapPoint type:%@",poiName);
-    //电梯 7，问讯处 6，门 12，5
     RTLbs3DAnnotation * anno = [[RTLbs3DAnnotation alloc] initWithMapPoint:point
                                                                  annoTitle:poiName
                                                                     annoId:poiName
