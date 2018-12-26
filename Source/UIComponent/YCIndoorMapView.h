@@ -10,7 +10,7 @@
 
 @class IbeaconLocation;
 
-typedef void(^MapDidLoad)();
+typedef void(^MapDidLoad)(void);
 
 typedef void(^MapDidTap)(RTLbs3DAnnotation*);
 

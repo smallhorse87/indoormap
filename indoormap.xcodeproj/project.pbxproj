@@ -39,6 +39,8 @@
 		8151F52C21D3147400A5089C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F52B21D3147400A5089C /* OpenGLES.framework */; };
 		8151F52E21D3147C00A5089C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F52D21D3147C00A5089C /* QuartzCore.framework */; };
 		8151F53021D3148300A5089C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F52F21D3148300A5089C /* CoreGraphics.framework */; };
+		8151F53221D31C0A00A5089C /* YCIndoorMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8151F53121D31C0A00A5089C /* YCIndoorMap.bundle */; };
+		8151F53521D3206900A5089C /* YCIndoorMapBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F53421D3206900A5089C /* YCIndoorMapBundle.m */; };
 		818ACF5A21D3007800138683 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 818ACF5921D3007800138683 /* AppDelegate.m */; };
 		818ACF5D21D3007800138683 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818ACF5C21D3007800138683 /* ViewController.m */; };
 		818ACF6221D3007B00138683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 818ACF6121D3007B00138683 /* Assets.xcassets */; };
@@ -115,6 +117,9 @@
 		8151F52B21D3147400A5089C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		8151F52D21D3147C00A5089C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8151F52F21D3148300A5089C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8151F53121D31C0A00A5089C /* YCIndoorMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YCIndoorMap.bundle; sourceTree = "<group>"; };
+		8151F53321D3206900A5089C /* YCIndoorMapBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCIndoorMapBundle.h; sourceTree = "<group>"; };
+		8151F53421D3206900A5089C /* YCIndoorMapBundle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YCIndoorMapBundle.m; sourceTree = "<group>"; };
 		818ACF5521D3007800138683 /* indoormap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = indoormap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		818ACF5821D3007800138683 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		818ACF5921D3007800138683 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -269,6 +274,8 @@
 				8151F51A21D30CCE00A5089C /* BaseCell.h */,
 				8151F51B21D30CCE00A5089C /* BaseCell.m */,
 				8151F51921D30B6B00A5089C /* YCDefines.h */,
+				8151F53321D3206900A5089C /* YCIndoorMapBundle.h */,
+				8151F53421D3206900A5089C /* YCIndoorMapBundle.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -317,6 +324,7 @@
 				8151F4CC21D30AEA00A5089C /* UIComponent */,
 				8151F4E721D30AEA00A5089C /* UIViewController */,
 				8151F50021D30AEA00A5089C /* ViewModel */,
+				8151F53121D31C0A00A5089C /* YCIndoorMap.bundle */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -380,6 +388,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8151F53221D31C0A00A5089C /* YCIndoorMap.bundle in Resources */,
 				818ACF7021D302A600138683 /* podfile in Resources */,
 				8151F51621D30AEA00A5089C /* RtmapRes.bundle in Resources */,
 				818ACF6521D3007B00138683 /* LaunchScreen.storyboard in Resources */,
@@ -445,6 +454,7 @@
 				8151F51021D30AEA00A5089C /* YCIndoorMapViewController.m in Sources */,
 				8151F50421D30AEA00A5089C /* YCFavoriteListView.m in Sources */,
 				8151F50E21D30AEA00A5089C /* YCPinNavBar.m in Sources */,
+				8151F53521D3206900A5089C /* YCIndoorMapBundle.m in Sources */,
 				818ACF6821D3007B00138683 /* main.m in Sources */,
 				8151F50921D30AEA00A5089C /* YCIndoorMapView.m in Sources */,
 				8151F51221D30AEA00A5089C /* YCIndoorSearchViewController.m in Sources */,

@@ -48,7 +48,7 @@
         make.leading.trailing.top.bottom.equalTo(self);
     }];
 
-    UIImageView *_noBlueToothPic = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_lanya_ios"]];
+    UIImageView *_noBlueToothPic = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"YCIndoorMap.bundle/bg_lanya_ios"]];
     _noBlueToothPic.contentMode = UIViewContentModeScaleAspectFill;
     _noBlueToothPic.clipsToBounds = YES;
     [self addSubview:_noBlueToothPic];

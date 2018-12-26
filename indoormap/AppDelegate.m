@@ -10,7 +10,9 @@
 
 #import "ViewController.h"
 
-@interface AppDelegate ()
+#import "RTLbsMapManager.h"
+
+@interface AppDelegate ()<RTLbsVerifyDelegate>
 
 @end
 
@@ -24,6 +26,9 @@
     self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:vc];
     [self.window makeKeyAndVisible];
 
+    RTLbsMapManager *mapManager = [[RTLbsMapManager alloc]init];
+    [mapManager startVerifyLicense:@"j3nTKx4fV6" delegate:self];
+    
     return YES;
 }
 

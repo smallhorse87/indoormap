@@ -32,7 +32,7 @@
 
 #import "Masonry.h"
 
-@interface YCIndoorMapViewController ()
+@interface YCIndoorMapViewController ()<UINavigationControllerDelegate>
 {
     YCFloorPicker       *_floorPickView;
     YCPinNavBar         *_pinNavBar;
@@ -74,6 +74,9 @@
 
     [self bindWithViewModel:nil floor:nil];
 
+    // 设置导航控制器的代理为self
+    self.navigationController.delegate = self;
+
     //构建视图
     [self buildIndoorMap];
     [self buildGuidingNavBar];
@@ -90,6 +93,17 @@
 
     //初始请求
     [_viewModel onFloorInfosReq];
+}
+
+#pragma mark - UINavigationControllerDelegate
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{    
+    BOOL showSelf = [viewController isKindOfClass:[self class]];
+    [self.navigationController setNavigationBarHidden:showSelf animated:YES];
+}
+
+- (void)dealloc {
+    self.navigationController.delegate = nil;
 }
 
 #pragma mark - bind with viewmodel
@@ -248,7 +262,7 @@
     _toLocateBtn.layer.shadowOffset  =  CGSizeMake(0, 1);
     _toLocateBtn.layer.shadowOpacity =  0.5;
     _toLocateBtn.layer.shadowColor   =  kColor_B6B6B6.CGColor;
-    [_toLocateBtn setImage:[UIImage imageNamed:@"icon_location_default"] forState:UIControlStateNormal];
+    [_toLocateBtn setImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_location_default"] forState:UIControlStateNormal];
     [_toLocateBtn isw_addClickAction:@selector(toolbarLocationBtnPressed) target:self];
     [self.view addSubview:_toLocateBtn];
     [_toLocateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -356,12 +370,12 @@
 #pragma mark - update UI
 - (void)lostLocationSignal
 {
-    [_toLocateBtn setImage:[UIImage imageNamed:@"icon_location_default"] forState:UIControlStateNormal];
+    [_toLocateBtn setImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_location_default"] forState:UIControlStateNormal];
 }
 
 - (void)receiveLocationSignal
 {
-    [_toLocateBtn setImage:[UIImage imageNamed:@"icon_location_selected"] forState:UIControlStateNormal];
+    [_toLocateBtn setImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_location_selected"] forState:UIControlStateNormal];
 }
 
 #pragma mark - pop/dismiss UI

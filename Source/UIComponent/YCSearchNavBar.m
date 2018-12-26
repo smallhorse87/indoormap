@@ -56,8 +56,8 @@
     }];
 
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn setImage:[UIImage imageNamed:@"icon_route_edit_back_normal"] forState:UIControlStateNormal];
-    [backBtn setImage:[UIImage imageNamed:@"icon_route_edit_back_pressed"] forState:UIControlStateHighlighted];
+    [backBtn setImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_route_edit_back_normal"] forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_route_edit_back_pressed"] forState:UIControlStateHighlighted];
     [backBtn isw_addClickAction:@selector(backBtnPressed) target:self];
     [searchBgView addSubview:backBtn];
     [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -94,8 +94,8 @@
     }];
     
     UIButton *pinBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [pinBtn setImage:[UIImage imageNamed:@"icon_search_local"] forState:UIControlStateNormal];
-    [pinBtn setImage:[UIImage imageNamed:@"icon_search_local"] forState:UIControlStateHighlighted];
+    [pinBtn setImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_search_local"] forState:UIControlStateNormal];
+    [pinBtn setImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_search_local"] forState:UIControlStateHighlighted];
     [pinBtn isw_titleForAllState:@"地图选点"];
     [pinBtn isw_titleColorForAllState:kColorDeepDark];
     pinBtn.titleLabel.font = [UIFont isw_Pingfang:12];
@@ -109,8 +109,8 @@
     }];
 
     UIButton *favBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [favBtn setImage:[UIImage imageNamed:@"icon_search_collect"] forState:UIControlStateNormal];
-    [favBtn setImage:[UIImage imageNamed:@"icon_search_collect"] forState:UIControlStateHighlighted];
+    [favBtn setImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_search_collect"] forState:UIControlStateNormal];
+    [favBtn setImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_search_collect"] forState:UIControlStateHighlighted];
     [favBtn isw_titleForAllState:@"收藏夹"];
     [favBtn isw_titleColorForAllState:kColorDeepDark];
     favBtn.titleLabel.font = [UIFont isw_Pingfang:12];

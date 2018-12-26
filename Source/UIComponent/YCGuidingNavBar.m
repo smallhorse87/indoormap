@@ -32,7 +32,7 @@
 - (void)buildUI
 {
     UIButton *navBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [navBtn setImage:[UIImage imageNamed:@"icon_back_two"] forState:UIControlStateNormal];
+    [navBtn setImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_back_two"] forState:UIControlStateNormal];
     [navBtn addTarget:self action:@selector(backBtnPressed) forControlEvents:UIControlEventTouchUpInside];
     
     [self addSubview:navBtn];

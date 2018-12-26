@@ -60,7 +60,7 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
 
 - (void)buildUI
 {
-    self.navigationMode     = RTLbsRoutePlanningModeNavigation;
+    //stony debug self.navigationMode     = RTLbsRoutePlanningModeNavigation;
     self.showRubberBand     = YES;
     [self mapViewShowLabelsAllow:YES];
     //stony question self.navigationNodeType = RTLbsRouteNodeModeEndPoint;
@@ -140,10 +140,10 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
 
 }
 
-- (void) mapViewInflectionPoint:(RTLbs3DNavigationInfo*)inflection allDistance:(float)distance isEndPoi:(BOOL)endPoi
-{
-    NSLog(@"松：mapViewInflectionPoint %@ %lf %@",inflection, distance, endPoi?@"YES":@"NO");
-}
+//- (void) mapViewInflectionPoint:(RTLbs3DNavigationInfo*)inflection allDistance:(float)distance isEndPoi:(BOOL)endPoi
+//{
+//    NSLog(@"松：mapViewInflectionPoint %@ %lf %@",inflection, distance, endPoi?@"YES":@"NO");
+//}
 
 - (void) mapViewLoadedFailed:(RTLbsMapView*)rtmapView error:(NSString *)errorInfo
 {
@@ -188,8 +188,8 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
     //绘制新的规划线路
     [self removeAnnotations];
 
-    self.navStartImage      = [UIImage imageNamed:@"map_start"];
-    self.navEndImage        = [UIImage imageNamed:@"map_end"];
+    self.navStartImage      = [UIImage imageNamed:@"YCIndoorMap.bundle/map_start"];
+    self.navEndImage        = [UIImage imageNamed:@"YCIndoorMap.bundle/map_end"];
 
     [self drawNavigationLine:(NSMutableArray*)navigationInfo floorId:floor];
 }
@@ -205,7 +205,7 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
         [self drawMobilePositioningPoint:CGPointMake(_myLocation.location_x, _myLocation.location_y)
                                 AndBuild:Bodimall_BuildId
                                 AndFloor:_myLocation.floorID
-                       locationImageName:@"foot_navi_direction_normal"];
+                       locationImageName:@"YCIndoorMap.bundle/foot_navi_direction_normal"];
     } else {
         [self removeMapViewLocationPoint];;
     }

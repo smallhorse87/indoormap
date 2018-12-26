@@ -54,14 +54,14 @@
         make.top.equalTo(titlelabel.mas_bottom);
     }];
     
-    UIImageView *starIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_search_collect"]];
+    UIImageView *starIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_search_collect"]];
     [self.contentView addSubview:starIcon];
     [starIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(16);
         make.top.equalTo(self.contentView).offset(22.5);
     }];
 
-    UIImageView *slashArrowIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"map_go_normal"]];
+    UIImageView *slashArrowIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"YCIndoorMap.bundle/map_go_normal"]];
     [self.contentView addSubview:slashArrowIcon];
     [slashArrowIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.trailing.equalTo(self.contentView).offset(-14.4);

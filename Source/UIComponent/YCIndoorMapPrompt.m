@@ -51,7 +51,7 @@
         make.leading.trailing.top.bottom.equalTo(self);
     }];
 
-    UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_map_record"]];
+    UIImageView *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_map_record"]];
     icon.contentMode = UIViewContentModeScaleAspectFill;
     icon.clipsToBounds = YES;
     [self addSubview:icon];
@@ -62,7 +62,7 @@
     }];
 
     UIButton *closeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [closeBtn isw_imageForAllState:[UIImage imageNamed:@"icon_map_delete"]];
+    [closeBtn isw_imageForAllState:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_map_delete"]];
     [closeBtn isw_addClickAction:@selector(closeBtnPressed) target:self];
     [self addSubview:closeBtn];
     [closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {

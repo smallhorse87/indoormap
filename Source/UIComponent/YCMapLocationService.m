@@ -61,7 +61,7 @@
 
 -(void)beaconManager:(RTMapLocationManager *)manager didFailLocation:(NSDictionary *)result withBeacons:(NSArray *)beacons
 {
-    NSLog(@"定位出错 \n result = %@",result);
+//stony debug    NSLog(@"定位出错 \n result = %@",result);
 
     NSString  *errMsg = @"定位失败";
     NSInteger errCode = 1;

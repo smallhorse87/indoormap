@@ -59,7 +59,7 @@
     }];
 
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn isw_imageForAllState:[UIImage imageNamed:@"icon_back_one"]];
+    [backBtn isw_imageForAllState:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_back_one"]];
     [backBtn isw_addClickAction:@selector(backBtnPressed) target:self];
     [searchBgView addSubview:backBtn];
     [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {

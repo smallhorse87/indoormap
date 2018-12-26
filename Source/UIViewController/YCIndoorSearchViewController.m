@@ -23,7 +23,7 @@
 #import "YCMapSearchCell.h"
 #import "YCFavoriteListView.h"
 
-@interface YCIndoorSearchViewController ()
+@interface YCIndoorSearchViewController ()<UINavigationControllerDelegate>
 {
     YCFavoriteListView   *_favoriteListView;
 
@@ -52,6 +52,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    // 设置导航控制器的代理为self
+    //self.navigationController.delegate = self;
+    self.navigationController.navigationBarHidden = YES;
+
     //导航栏设置
     [self buildSearchNav];
 
@@ -66,8 +70,18 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
 }
+
+//导航栏隐藏
+//- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+//{
+//    BOOL showSelf = [viewController isKindOfClass:[self class]];
+//    [self.navigationController setNavigationBarHidden:showSelf animated:YES];
+//}
+//
+//- (void)dealloc {
+//    self.navigationController.delegate = nil;
+//}
 
 #pragma mark - bind with viewmodel
 

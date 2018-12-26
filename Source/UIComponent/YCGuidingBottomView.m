@@ -85,7 +85,7 @@
     _roughPromptLable.text = @"顺着路线方向走";
     
     UIButton *voiceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [voiceBtn setImage:[UIImage imageNamed:@"icon_voice_open"] forState:UIControlStateNormal];
+    [voiceBtn setImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_voice_open"] forState:UIControlStateNormal];
     [voiceBtn isw_addClickAction:@selector(voiceBtnPressed) target:self];
     [self addSubview:voiceBtn];
     [voiceBtn mas_makeConstraints:^(MASConstraintMaker *make) {

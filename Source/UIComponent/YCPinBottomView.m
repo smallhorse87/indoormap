@@ -111,7 +111,7 @@
     }];
 
     _navBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_navBtn isw_imageForAllState:[UIImage imageNamed:@"icon_navigation_selected"]];
+    [_navBtn isw_imageForAllState:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_navigation_selected"]];
     [_navBtn isw_addClickAction:@selector(toGuideSettingBtnPressed) target:self];
     [self addSubview:_navBtn];
     [_navBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -146,7 +146,7 @@
 {
     [self setupContent:@"请在地图上选择起点" floor:nil];
     
-    [_navBtn isw_imageForAllState:[UIImage imageNamed:@"icon_navigation_selected"]];
+    [_navBtn isw_imageForAllState:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_navigation_selected"]];
     _bgView.backgroundColor = kColorDeepDark;
     _addressLable.hidden    = YES;
     _promptLabel.hidden     = NO;
@@ -164,7 +164,7 @@
 
     _floorLable.text   = floor;
 
-    [_navBtn isw_imageForAllState:[UIImage imageNamed:@"icon_navigation_default"]];
+    [_navBtn isw_imageForAllState:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_navigation_default"]];
     _bgView.backgroundColor     = kColorWhite;
     _addressLable.hidden        = NO;
     _promptLabel.hidden         = YES;

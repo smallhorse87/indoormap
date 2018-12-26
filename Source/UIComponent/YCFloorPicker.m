@@ -51,7 +51,7 @@
     }];
     _floorLabel.text = @"F1";
 
-    _locatedFlag = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_sanjiao"]];
+    _locatedFlag = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_sanjiao"]];
     _locatedFlag.contentMode = UIViewContentModeScaleAspectFill;
     _locatedFlag.clipsToBounds = YES;
     [self addSubview:_locatedFlag];
@@ -176,7 +176,7 @@
     _floorTable.delegate   = self;
     
     _topBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_topBtn isw_imageForAllState:[UIImage imageNamed:@"icon_top"]];
+    [_topBtn isw_imageForAllState:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_top"]];
     [_topBtn isw_addClickAction:@selector(topBtnPressed) target:self];
     [self addSubview:_topBtn];
     [_topBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -186,7 +186,7 @@
     }];
     
     _downBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_downBtn isw_imageForAllState:[UIImage imageNamed:@"icon_down"]];
+    [_downBtn isw_imageForAllState:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_down"]];
     [_downBtn isw_addClickAction:@selector(downBtnPressed) target:self];
     [self addSubview:_downBtn];
     [_downBtn mas_makeConstraints:^(MASConstraintMaker *make) {

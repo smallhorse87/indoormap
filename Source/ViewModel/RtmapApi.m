@@ -10,6 +10,8 @@
 
 #import "RTLbs3DWebService.h"
 
+#import "RTLbsMapManager.h"
+
 #import "YCDefines.h"
 
 RTLbs3DWebService *webService;
