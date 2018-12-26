@@ -115,7 +115,6 @@
     [self.KVOController observe:self.viewModel
                        keyPaths:@[@"ntReqPhase",
                                   @"floorArr",
-                                  @"quickPOIs",
                                   @"retInitedPoiMsg",
                                   @"currentFloor",
                                   @"location",
@@ -137,9 +136,6 @@
    
          } else if ([key isEqualToString:@"location"]) {
              [weakSelf locationValueUpdated];
-             
-         } else if ([key isEqualToString:@"quickPOIs"]) {
-             [weakSelf quickPOIsValueUpdated];
              
          } else if ([key isEqualToString:@"retInitedPoiMsg"]) {
              [weakSelf retInitedPoiMsgValueUpdated];
@@ -600,7 +596,6 @@
 
 - (void)mapDidLoadSuc
 {
-    [_viewModel onQuickPOIsReq];
     [_viewModel onInitSearchReq];
 
     [self popMapLoadToast:_mapView.floor];
@@ -721,24 +716,6 @@
     anno.iconImage = [UIImage imageNamed:[self pinIcon:anno.annoTitle]];
 
     [_viewModel onSearchedPinAnnotationChanged:anno];
-}
-
-- (void)quickPOIsValueUpdated
-{
-    if(_viewModel.quickPOIs.count==0)
-        return;
-    
-    NSMutableArray *quickPOIAnnotations = [[NSMutableArray alloc] init];
-    
-    for (RTLbs3DPOIMessageClass *poiMc in _viewModel.quickPOIs)
-    {
-        RTLbs3DAnnotation *anno = [self buildAnnotationWithPOIWithMsg:poiMc];
-        anno.iconImage = [UIImage imageNamed:[self quickPoiIcon:anno.annoTitle]];
-
-        [quickPOIAnnotations addObject:anno];
-    }
-
-    [_mapView drawQuickPOIs:quickPOIAnnotations];
 }
 
 - (void)locationValueUpdated

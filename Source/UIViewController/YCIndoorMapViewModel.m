@@ -30,14 +30,6 @@
     NSString    *_initedKeyword;
     NSString    *_initedFloor;
     
-    NSArray     *_toiletPOIs;
-    NSArray     *_elevatorPOIs;
-    NSArray     *_escalatorPOIs;
-    NSArray     *_stairPOIs;
-    NSArray     *_informationPOIs;
-    NSArray     *_gatePOIs;
-    NSMutableDictionary *_POIsFloorDic;
-    
     YCMapLocationService *locService;
     
     RTLbsMapView    *_mapView;
@@ -56,8 +48,6 @@
 @property (nonatomic, strong) NSString   *ntReqPrompt;
 
 @property (nonatomic, strong) NSArray   *floorArr;
-
-@property (nonatomic, strong) NSArray   *quickPOIs;
 
 @property (nonatomic, strong) IbeaconLocation *location;
 @property (nonatomic, strong) NSString         *locationErrCode;
@@ -111,8 +101,6 @@
 
         _guideMode      = YCGuideModeInit;
         
-        _POIsFloorDic = [[NSMutableDictionary alloc] init];
-        
         [self setupBluetoothManager];
 
         //stony debug begin
@@ -159,7 +147,7 @@
         WEAKSELF
 
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            if(_location!=nil) {
+            if(weakSelf.location!=nil) {
                 [weakSelf onRoutePlanReq];
             } else {
                 [weakSelf ntRequestFail:YCLocalErr(@"定位失败，换个地方试试。")];
@@ -220,22 +208,6 @@
 
 }
 
-- (void)onQuickPOIsReq
-{
-    if([_POIsFloorDic objectForKey:_currentFloor] != nil)
-        return;
-
-    //清空
-    [self resetQuickPOIs];
-
-    [self searchToiletPOI];
-    [self searchElevatorPOI];
-    [self searchEscalatorPOI];
-    [self searchStairPOI];
-    [self searchGatePOI];
-    [self searchInformationPOI];
-}
-
 - (void)onFetchContinuousLocReq
 {
     if(_location != nil)
@@ -246,7 +218,7 @@
     WEAKSELF
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if(_location==nil) {
+        if(weakSelf.location==nil) {
             [weakSelf ntRequestFail:YCLocalErr(@"定位失败，换个地方试试。")];
         } else {
             [weakSelf ntRequestSuc:@"定位成功。"];
@@ -363,216 +335,6 @@
     }
 }
     
-#pragma mark - utilities
-- (void)searchToiletPOI
-{
-    NSString *keyword = @"卫生间";
-
-    WEAKSELF
-    
-    static RtmapApi *poiapi;
-    poiapi = [[RtmapApi alloc]init];
-
-    [poiapi requestPOIsWithkeyword:keyword
-                          buildId:Indoormap_BuildId
-                            floor:_currentFloor
-                         sucBlock:^(NSArray * poiArr)
-     {
-         [weakSelf catQuickPOIs:poiArr keyword:keyword];
-
-         poiapi = nil;
-         
-     } failBlock:^(NSString *error){
-         
-         poiapi = nil;
-
-     }];
-}
-
-- (void)searchElevatorPOI
-{
-    NSString *keyword = @"电梯";
-    
-    WEAKSELF
-    
-    static RtmapApi *poiapi;
-    poiapi = [[RtmapApi alloc]init];
-    
-    [poiapi requestPOIsWithkeyword:keyword
-                           buildId:Indoormap_BuildId
-                             floor:_currentFloor
-                          sucBlock:^(NSArray * poiArr)
-     {
-         [weakSelf catQuickPOIs:poiArr keyword:keyword];
-         
-         poiapi = nil;
-         
-     } failBlock:^(NSString *error){
-         
-         poiapi = nil;
-         
-     }];
-}
-
-- (void)searchEscalatorPOI
-{
-    NSString *keyword = @"自动扶梯";
-
-    WEAKSELF
-    
-    static RtmapApi *poiapi;
-    poiapi = [[RtmapApi alloc]init];
-    
-    [poiapi requestPOIsWithkeyword:keyword
-                           buildId:Indoormap_BuildId
-                             floor:_currentFloor
-                          sucBlock:^(NSArray * poiArr)
-     {
-         [weakSelf catQuickPOIs:poiArr keyword:keyword];
-         
-         poiapi = nil;
-         
-     } failBlock:^(NSString *error){
-         
-         poiapi = nil;
-         
-     }];
-}
-
-- (void)searchStairPOI
-{
-    NSString *keyword = @"楼梯";
-    
-    WEAKSELF
-    
-    static RtmapApi *poiapi;
-    poiapi = [[RtmapApi alloc]init];
-    
-    [poiapi requestPOIsWithkeyword:keyword
-                           buildId:Indoormap_BuildId
-                             floor:_currentFloor
-                          sucBlock:^(NSArray * poiArr)
-     {
-         [weakSelf catQuickPOIs:poiArr keyword:keyword];
-         
-         poiapi = nil;
-         
-     } failBlock:^(NSString *error){
-         
-         poiapi = nil;
-         
-     }];
-}
-
-- (void)searchGatePOI
-{
-    NSString *keyword = @"出入口";
-    
-    WEAKSELF
-    
-    static RtmapApi *poiapi;
-    poiapi = [[RtmapApi alloc]init];
-    
-    [poiapi requestPOIsWithkeyword:keyword
-                           buildId:Indoormap_BuildId
-                             floor:_currentFloor
-                          sucBlock:^(NSArray * poiArr)
-     {
-         [weakSelf catQuickPOIs:poiArr keyword:keyword];
-         
-         poiapi = nil;
-         
-     } failBlock:^(NSString *error){
-         
-         poiapi = nil;
-         
-     }];
-}
-
-- (void)searchInformationPOI
-{
-    NSString *keyword = @"服务台";
-
-    WEAKSELF
-    
-    static RtmapApi *poiapi;
-    poiapi = [[RtmapApi alloc]init];
-    
-    [poiapi requestPOIsWithkeyword:keyword
-                           buildId:Indoormap_BuildId
-                             floor:_currentFloor
-                          sucBlock:^(NSArray * poiArr)
-     {
-         [weakSelf catQuickPOIs:poiArr keyword:keyword];
-         
-         poiapi = nil;
-         
-     } failBlock:^(NSString *error){
-         
-         poiapi = nil;
-         
-     }];
-}
-
-- (void)catQuickPOIs:(NSArray*)POIs keyword:(NSString*)keyword
-{
-    if([keyword isEqualToString:@"卫生间"]) {
-        _toiletPOIs   = (POIs==nil) ? @[] : POIs;
-        
-    } else if ([keyword isEqualToString:@"电梯"]) {
-        _elevatorPOIs = (POIs==nil) ? @[] : POIs;
-
-    } else if ([keyword isEqualToString:@"自动扶梯"]) {
-        _escalatorPOIs = (POIs==nil) ? @[] : POIs;
-        
-    } else if ([keyword isEqualToString:@"楼梯"]) {
-        _stairPOIs = (POIs==nil) ? @[] : POIs;
-        
-    } else if ([keyword isEqualToString:@"出入口"]) {
-        _gatePOIs = (POIs==nil) ? @[] : POIs;
-        
-    } else if ([keyword isEqualToString:@"服务台"]) {
-        _informationPOIs = (POIs==nil) ? @[] : POIs;
-        
-    } else {
-        return;
-    }
-
-    //当集齐了6种类型poi，就赋值
-    if(_toiletPOIs!=nil &&
-       _elevatorPOIs!=nil &&
-       _escalatorPOIs!=nil &&
-       _stairPOIs!=nil &&
-       _gatePOIs!=nil &&
-       _informationPOIs!=nil)
-    {
-        
-        NSMutableArray *catArr  = [[NSMutableArray alloc] initWithArray:_toiletPOIs];
-        [catArr addObjectsFromArray:_elevatorPOIs];
-        [catArr addObjectsFromArray:_escalatorPOIs];
-        [catArr addObjectsFromArray:_stairPOIs];
-        [catArr addObjectsFromArray:_gatePOIs];
-        [catArr addObjectsFromArray:_informationPOIs];
-
-        self.quickPOIs = catArr;
-        
-        [_POIsFloorDic setObject:@"YES" forKey:_currentFloor];
-    }
-
-}
-
-- (void)resetQuickPOIs
-{
-    _toiletPOIs      = nil;
-    _elevatorPOIs    = nil;
-    _escalatorPOIs   = nil;
-    _stairPOIs       = nil;
-    _gatePOIs        = nil;
-    _informationPOIs = nil;
-
-    self.quickPOIs = nil;
-}
-
 #pragma mark - 导航模式状态机
 - (void)onGuideModeState:(YCGuideMode)mode
 {
@@ -700,7 +462,7 @@
      ^(IbeaconLocation *location) {
          weakSelf.location = location;
          
-         if(_guideMode != YCGuideModeRealtimeGuiding)
+         if(weakSelf.guideMode != YCGuideModeRealtimeGuiding)
              return;
 
 //         [_realtimeGuide checkApproachingKeyNavInfo:_location];

@@ -23,7 +23,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) NSString        *ntReqPrompt;
 
 @property (nonatomic, readonly) NSArray          *floorArr;
-@property (nonatomic, readonly) NSArray          *quickPOIs;
 
 @property (nonatomic, readonly) IbeaconLocation  *location;
 @property (nonatomic, readonly) NSString         *locationErrCode;
@@ -49,8 +48,6 @@ typedef enum : NSUInteger {
 
 //一次性获取信息
 - (void)onFloorInfosReq;
-
-- (void)onQuickPOIsReq;
 
 - (void)onInitSearchReq;
 

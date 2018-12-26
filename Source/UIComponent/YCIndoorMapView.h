@@ -28,8 +28,6 @@ typedef void(^FloorDidChange)(NSString*);
 
 - (void)moveToPinAnnotatin;
 
-- (void)drawQuickPOIs:(NSArray*)quickPOIAnnotations;
-
 - (void)drawRoutes:(NSArray*)navigationInfo targetFloor:(NSString*)floor;
 
 - (void)cleanAll;

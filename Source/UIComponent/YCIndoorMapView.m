@@ -290,15 +290,6 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
     [self adjustView];
 }
 
-- (void)drawQuickPOIs:(NSArray*)quickPOIAnnotations
-{
-    return;//stony debug hotfix
-    for (RTLbs3DAnnotation *poiAnno in quickPOIAnnotations)
-    {
-        [self addAnnotation:poiAnno isShowPopView:NO setMapCenter:NO];
-    }
-}
-
 #pragma mark - utilities
 
 - (void)adjustView
