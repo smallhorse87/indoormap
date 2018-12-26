@@ -74,9 +74,6 @@
 
     [self bindWithViewModel:nil floor:nil];
 
-    // 设置导航控制器的代理为self
-    self.navigationController.delegate = self;
-
     //构建视图
     [self buildIndoorMap];
     [self buildGuidingNavBar];
@@ -95,15 +92,11 @@
     [_viewModel onFloorInfosReq];
 }
 
-#pragma mark - UINavigationControllerDelegate
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
-{    
-    BOOL showSelf = [viewController isKindOfClass:[self class]];
-    [self.navigationController setNavigationBarHidden:showSelf animated:YES];
-}
-
-- (void)dealloc {
-    self.navigationController.delegate = nil;
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
 #pragma mark - bind with viewmodel
