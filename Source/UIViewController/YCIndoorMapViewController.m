@@ -654,6 +654,9 @@
 
 - (void)pinAddressBtnPressed
 {
+    if(_viewModel.pinAnnotation==nil)
+        return;
+
     [_mapView moveToPinAnnotatin];
 }
 

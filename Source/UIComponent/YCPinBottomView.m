@@ -83,15 +83,6 @@
         make.top.equalTo(_bgView).offset(7);
     }];
 
-    UIButton *addressBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [addressBtn isw_addClickAction:@selector(addressBtnPressed) target:self];
-    [_bgView addSubview:addressBtn];
-    [addressBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.equalTo(_bgView);
-        make.leading.equalTo(_bgView);
-        make.right.equalTo(_addressLable.mas_right);
-    }];
-
     _floorLable      = [[UILabel alloc] init];
     _floorLable.textColor     = kColorDeepDark;
     _floorLable.font          = [UIFont isw_Pingfang:12 weight:UIFontWeightSemibold];
@@ -119,6 +110,16 @@
         make.trailing.equalTo(self).offset(-9);
         make.top.equalTo(self);
     }];
+    
+    UIButton *addressBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addressBtn isw_addClickAction:@selector(addressBtnPressed) target:self];
+    [_bgView addSubview:addressBtn];
+    [addressBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(_bgView);
+        make.leading.equalTo(_bgView);
+        make.right.equalTo(_navBtn.mas_left).offset(-9);
+    }];
+
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event

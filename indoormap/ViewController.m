@@ -33,7 +33,7 @@
     
     UIButton *poiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [poiBtn isw_addClickAction:@selector(poiBtnPressed) target:self];
-    [poiBtn isw_titleForAllState:@"查找超市的位置"];
+    [poiBtn isw_titleForAllState:@"打开室内地图，并定位到指定商铺"];
     poiBtn.titleLabel.font = [UIFont isw_Pingfang:18];
     [poiBtn isw_titleColorForAllState:[UIColor blackColor]];
     [self.view addSubview:poiBtn];
@@ -57,7 +57,7 @@
 
 - (void)poiBtnPressed
 {
-    YCIndoorMapViewController *vc = [[YCIndoorMapViewController alloc] init];
+    YCIndoorMapViewController *vc = [[YCIndoorMapViewController alloc] initWithKeyword:@"一点点" floor:@"B1"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

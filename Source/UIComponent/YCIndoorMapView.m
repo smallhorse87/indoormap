@@ -209,8 +209,6 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
     if(_myLocation==nil)
         return;
 
-    //已移动到位 //stony debug ：出现一个问题，手动滑过了，怎么记录当前中心点？
-
     if([self.floor isEqualToString:_myLocation.floorID])
         return;
 
@@ -230,8 +228,7 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
         return;
     
     centerPoint = _currentAnnotation.location;
-    
-    //已移动到位 //stony debug ：出现一个问题，手动滑过了，怎么记录当前中心点？
+
     if(![self.floor isEqualToString:_myLocation.floorID]) {
         [self reloadMapWithBuilding:Indoormap_BuildId
                            andFloor:_currentAnnotation.annotationFloor];
