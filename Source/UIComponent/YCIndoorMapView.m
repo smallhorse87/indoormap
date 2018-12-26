@@ -14,7 +14,7 @@
 #import "Masonry.h"
 #import "ISWCategory.h"
 
-#import "YCDefines.h"
+#import "IndoorMapDefines.h"
 
 #define kColor_d3d3d3   UIColorFromRGB(0xd3d3d3)
 #define kColor_E9E9E9   UIColorFromRGB(0xE9E9E9)

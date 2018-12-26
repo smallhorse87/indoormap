@@ -1,14 +1,14 @@
 //
-//  BaseCell.m
+//  IndoorMapBaseCell.m
 //  youngcity
 //
 //  Created by chenxiaosong on 2017/2/22.
 //  Copyright © 2017年 Zhitian Network Tech. All rights reserved.
 //
 
-#import "BaseCell.h"
+#import "IndoorMapBaseCell.h"
 
-@implementation BaseCell
+@implementation IndoorMapBaseCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

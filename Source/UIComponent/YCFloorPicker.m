@@ -12,7 +12,7 @@
 
 #import "ISWCategory.h"
 
-#import "YCDefines.h"
+#import "IndoorMapDefines.h"
 
 @interface YCFloorCell:UITableViewCell
 {

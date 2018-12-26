@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "BaseCell.h"
+#import "IndoorMapBaseCell.h"
 
-@interface YCMapSearchCell : BaseCell
+@interface YCMapSearchCell : IndoorMapBaseCell
 
 - (void)setupContent:(NSString*)title floor:(NSString*)floor icon:(NSString*)icon;
 

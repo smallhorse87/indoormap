@@ -11,7 +11,7 @@
 #import "ViewController.h"
 
 #import "RTLbsMapManager.h"
-#import "YCDefines.h"
+#import "IndoorMapDefines.h"
 
 @interface AppDelegate ()<RTLbsVerifyDelegate>
 

@@ -29,7 +29,7 @@
 		8151F51521D30AEA00A5089C /* lib3DMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F4F721D30AEA00A5089C /* lib3DMapView.a */; };
 		8151F51621D30AEA00A5089C /* RtmapRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8151F4FF21D30AEA00A5089C /* RtmapRes.bundle */; };
 		8151F51721D30AEA00A5089C /* RtmapApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F50221D30AEA00A5089C /* RtmapApi.m */; };
-		8151F51C21D30CCE00A5089C /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F51B21D30CCE00A5089C /* BaseCell.m */; };
+		8151F51C21D30CCE00A5089C /* IndoorMapBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F51B21D30CCE00A5089C /* IndoorMapBaseCell.m */; };
 		8151F51E21D3136300A5089C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F51D21D3136300A5089C /* libsqlite3.tbd */; };
 		8151F52021D3143E00A5089C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F51F21D3143E00A5089C /* SystemConfiguration.framework */; };
 		8151F52221D3144800A5089C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F52121D3144800A5089C /* CoreLocation.framework */; };
@@ -106,9 +106,9 @@
 		8151F4FF21D30AEA00A5089C /* RtmapRes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RtmapRes.bundle; sourceTree = "<group>"; };
 		8151F50121D30AEA00A5089C /* RtmapApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RtmapApi.h; sourceTree = "<group>"; };
 		8151F50221D30AEA00A5089C /* RtmapApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RtmapApi.m; sourceTree = "<group>"; };
-		8151F51921D30B6B00A5089C /* YCDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCDefines.h; sourceTree = "<group>"; };
-		8151F51A21D30CCE00A5089C /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
-		8151F51B21D30CCE00A5089C /* BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
+		8151F51921D30B6B00A5089C /* IndoorMapDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndoorMapDefines.h; sourceTree = "<group>"; };
+		8151F51A21D30CCE00A5089C /* IndoorMapBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndoorMapBaseCell.h; sourceTree = "<group>"; };
+		8151F51B21D30CCE00A5089C /* IndoorMapBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndoorMapBaseCell.m; sourceTree = "<group>"; };
 		8151F51D21D3136300A5089C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8151F51F21D3143E00A5089C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8151F52121D3144800A5089C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -271,9 +271,9 @@
 		8151F51821D30B5800A5089C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				8151F51A21D30CCE00A5089C /* BaseCell.h */,
-				8151F51B21D30CCE00A5089C /* BaseCell.m */,
-				8151F51921D30B6B00A5089C /* YCDefines.h */,
+				8151F51A21D30CCE00A5089C /* IndoorMapBaseCell.h */,
+				8151F51B21D30CCE00A5089C /* IndoorMapBaseCell.m */,
+				8151F51921D30B6B00A5089C /* IndoorMapDefines.h */,
 				8107F07421D3702E009E194F /* IndoorMapContext.h */,
 				8107F07521D3702E009E194F /* IndoorMapContext.m */,
 			);
@@ -463,7 +463,7 @@
 				8151F51321D30AEA00A5089C /* YCIndoorSearchViewModel.m in Sources */,
 				8151F50A21D30AEA00A5089C /* YCMapLocationService.m in Sources */,
 				8151F51721D30AEA00A5089C /* RtmapApi.m in Sources */,
-				8151F51C21D30CCE00A5089C /* BaseCell.m in Sources */,
+				8151F51C21D30CCE00A5089C /* IndoorMapBaseCell.m in Sources */,
 				8151F50321D30AEA00A5089C /* RealtimeGuide.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

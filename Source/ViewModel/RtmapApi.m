@@ -12,7 +12,7 @@
 
 #import "RTLbsMapManager.h"
 
-#import "YCDefines.h"
+#import "IndoorMapDefines.h"
 
 RTLbs3DWebService *webService;
 

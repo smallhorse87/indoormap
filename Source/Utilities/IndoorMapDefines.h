@@ -1,13 +1,13 @@
 //
-//  YCDefines.h
+//  IndoorMapDefines.h
 //  indoormap
 //
 //  Created by chenxiaosong on 2018/12/26.
 //  Copyright © 2018年 chenxiaosong. All rights reserved.
 //
 
-#ifndef YCDefines_h
-#define YCDefines_h
+#ifndef IndoorMapDefines_h
+#define IndoorMapDefines_h
 
 /*
  *  常用颜色
@@ -69,4 +69,4 @@ typedef enum : NSUInteger {
 
 #define YCLocalErr(domain) [[NSError alloc] initWithDomain:domain code:0 userInfo:nil]
 
-#endif /* YCDefines_h */
+#endif /* IndoorMapDefines_h */

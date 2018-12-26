@@ -403,7 +403,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BaseCell *clickedCell = cellArr[indexPath.row];
+    IndoorMapBaseCell *clickedCell = cellArr[indexPath.row];
     
     if(clickedCell.clickecBlock!=nil) {
         clickedCell.clickecBlock(clickedCell);

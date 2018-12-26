@@ -1,5 +1,5 @@
 //
-//  BaseCell.h
+//  IndoorMapBaseCell.h
 //  youngcity
 //
 //  Created by chenxiaosong on 2017/2/22.
@@ -10,7 +10,7 @@
 
 typedef void (^ClickedAction)(UITableViewCell *cell);
 
-@interface BaseCell : UITableViewCell
+@interface IndoorMapBaseCell : UITableViewCell
 
 @property (nonatomic, strong) ClickedAction clickecBlock;
 @property (nonatomic,assign)  CGFloat       iswHeight;

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "YCDefines.h"
+#import "IndoorMapDefines.h"
 
 typedef enum : NSUInteger {
     YCGuideModeInit,

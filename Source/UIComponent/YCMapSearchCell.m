@@ -10,7 +10,7 @@
 
 #import "ISWCategory.h"
 #import "Masonry.h"
-#import "YCDefines.h"
+#import "IndoorMapDefines.h"
 
 @interface YCMapSearchCell()
 

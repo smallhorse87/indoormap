@@ -11,9 +11,9 @@
 #import "ISWCategory.h"
 #import "Masonry.h"
 
-#import "BaseCell.h"
+#import "IndoorMapBaseCell.h"
 
-@interface YCFavoriteCell : BaseCell
+@interface YCFavoriteCell : IndoorMapBaseCell
 
 @property (nonatomic,strong) UILabel      *floorLabel;
 @property (nonatomic,strong) UILabel      *titleLabel;
@@ -198,7 +198,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BaseCell *clickedCell = _cellArr[indexPath.row];
+    IndoorMapBaseCell *clickedCell = _cellArr[indexPath.row];
 
     if(clickedCell.clickecBlock!=nil) {
         clickedCell.clickecBlock(clickedCell);
