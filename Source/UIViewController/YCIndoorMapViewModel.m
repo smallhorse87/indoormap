@@ -116,6 +116,7 @@
         [self setupBluetoothManager];
 
         //stony debug begin
+        //模拟定位点，上线前将其注释掉
         _currentSimulatingLocation = [[IbeaconLocation alloc] init];
         _currentSimulatingLocation.floorID    = @"F1";
         _currentSimulatingLocation.location_x = 117.0969375;
@@ -161,7 +162,7 @@
             if(_location!=nil) {
                 [weakSelf onRoutePlanReq];
             } else {
-                //stony debug [weakSelf ntRequestFail:LocalErr(@"定位失败，换个地方试试。")];
+                [weakSelf ntRequestFail:LocalErr(@"定位失败，换个地方试试。")];
             }
         });
     }
@@ -246,9 +247,9 @@
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if(_location==nil) {
-            //stony debug [weakSelf ntRequestFail:LocalErr(@"定位失败，换个地方试试。")];
+            [weakSelf ntRequestFail:LocalErr(@"定位失败，换个地方试试。")];
         } else {
-            //stony debug [weakSelf ntRequestSuc:@"定位成功。"];
+            [weakSelf ntRequestSuc:@"定位成功。"];
         }
     });
 
@@ -329,7 +330,7 @@
 
 - (void) navigationRequestFail:(NSString *)error
 {
-    //stony debug [self ntRequestFail:LocalErr(error)];
+    [self ntRequestFail:LocalErr(error)];
 }
 
 - (void) navigationRequestFinish:(NSMutableArray*)navigationInfo
@@ -634,26 +635,26 @@
 - (void)ntRequesting
 {
     self.ntReqPrompt = nil;
-    //stony debug self.ntReqPhase  = @(NtPhaseRequesting);
+    self.ntReqPhase  = @(NtPhaseRequesting);
 }
 
 - (void)ntRequestSuc:(NSString*)str
 {
     self.ntReqPrompt = str;
-    //stony debug self.ntReqPhase  = @(NtPhaseResponseSuc);
+    self.ntReqPhase  = @(NtPhaseResponseSuc);
 }
 
 - (void)ntRequestFail:(NSError *)err
 {
     if (err.code==-1009) {
         self.ntReqPrompt = @"网络未连接";
-        //stony debug self.ntReqPhase  = @(NtPhaseNoConnection);
+        self.ntReqPhase  = @(NtPhaseNoConnection);
     } else if(err.code<0) {
         self.ntReqPrompt = @"网络连接超时";
-        //stony debug self.ntReqPhase  = @(NtPhaseConnectionTimeout);
+        self.ntReqPhase  = @(NtPhaseConnectionTimeout);
     } else {
         self.ntReqPrompt = err.domain;
-        //stony debug self.ntReqPhase  = @(NtPhaseResponseFail);
+        self.ntReqPhase  = @(NtPhaseResponseFail);
     }
     
 }

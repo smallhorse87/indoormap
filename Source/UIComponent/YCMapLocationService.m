@@ -61,12 +61,12 @@
 
 -(void)beaconManager:(RTMapLocationManager *)manager didFailLocation:(NSDictionary *)result withBeacons:(NSArray *)beacons
 {
-//stony debug    NSLog(@"定位出错 \n result = %@",result);
+    NSLog(@"定位出错 \n result = %@",result);
 
     NSString  *errMsg = @"定位失败";
     NSInteger errCode = 1;
 
-    //stony debug 数据类型不一致
+    //stony bug : 数据类型不一致
     if([[result objectForKey:@"bluetoothState"] integerValue] == 0) {
         errMsg  = @"蓝牙未打开";
         errCode = 2;

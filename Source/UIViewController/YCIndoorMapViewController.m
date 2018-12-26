@@ -12,6 +12,7 @@
 #import "YCIndoorMapViewModel.h"
 
 #import "ISWCategory.h"
+#import "ISWToast.h"
 
 #import "YCFloorPicker.h"
 #import "YCPinNavBar.h"
@@ -129,7 +130,7 @@
          NSString *key = [change objectForKey:@"FBKVONotificationKeyPathKey"];
 
          if([key isEqualToString:@"ntReqPhase"]) {
-             //stony debug [weakSelf popToast:[viewModel.ntReqPhase unsignedIntegerValue] title:viewModel.ntReqPrompt];
+             [weakSelf popToast:[viewModel.ntReqPhase unsignedIntegerValue] title:viewModel.ntReqPrompt];
 
          } else if ([key isEqualToString:@"floorArr"]) {
              [weakSelf floorArrValueUpdated];
@@ -430,32 +431,31 @@
 //               otherButtonTitles:nil];
 }
 
-//stony debug
-//- (void)popToast:(NtPhaseType)type title:(NSString*)title
-//{
-//    switch (type) {
-//        case NtPhaseNone:
-//            [ISWToast dismissToast];
-//            break;
-//
-//        case NtPhaseResponseSuc:
-//            [ISWToast dismissToast];
-//            break;
-//
-//        case NtPhaseConnectionTimeout:
-//        case NtPhaseNoConnection:
-//        case NtPhaseResponseFail:
-//            [ISWToast showFailToast:title];
-//            break;
-//
-//        case NtPhaseRequesting:
-//            [ISWToast showLoadingToast];
-//            break;
-//
-//        default:
-//            break;
-//    }
-//}
+- (void)popToast:(NtPhaseType)type title:(NSString*)title
+{
+    switch (type) {
+        case NtPhaseNone:
+            [ISWToast dismissToast];
+            break;
+
+        case NtPhaseResponseSuc:
+            [ISWToast dismissToast];
+            break;
+
+        case NtPhaseConnectionTimeout:
+        case NtPhaseNoConnection:
+        case NtPhaseResponseFail:
+            [ISWToast showFailToast:title];
+            break;
+
+        case NtPhaseRequesting:
+            [ISWToast showLoadingToast];
+            break;
+
+        default:
+            break;
+    }
+}
 
 - (void)popInDifferentBuildingAlert
 {

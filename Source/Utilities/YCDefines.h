@@ -74,7 +74,7 @@ alpha:1.0]
 #define kLargeCorner 4.0f
 #define kHugeCorner  5.0f
 
-typedef void(^Clicked)();
+typedef void(^Clicked)(void);
 typedef void(^InputCompleted)  (NSString *str);
 
 #define WEAKSELF typeof(self) __weak weakSelf = self;
@@ -87,5 +87,16 @@ typedef void(^InputCompleted)  (NSString *str);
 #define Bodimall_BuildId    @"862700010030300032"
 
 #define RTLbs_ServerAddress @"http://lbsapi.rtmap.com"
+
+typedef enum : NSUInteger {
+    NtPhaseNone,
+    NtPhaseRequesting,
+    NtPhaseResponseSuc,
+    NtPhaseResponseFail,
+    NtPhaseNoConnection,
+    NtPhaseConnectionTimeout
+} NtPhaseType;
+
+#define LocalErr(domain) [[NSError alloc] initWithDomain:domain code:0 userInfo:nil]
 
 #endif /* YCDefines_h */

@@ -60,44 +60,8 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
 
 - (void)buildUI
 {
-    //stony debug self.navigationMode     = RTLbsRoutePlanningModeNavigation;
-    self.showRubberBand     = YES;
-    [self mapViewShowLabelsAllow:YES];
-    //stony question self.navigationNodeType = RTLbsRouteNodeModeEndPoint;
-
-    self.compassPosition  = CGPointMake(33, 96);
-
-//stony debug
-//setMapViewColor 使用配色文件
-//    //地面
-//    self.mapGroundColorLine = kColorWhite;
-//    self.mapGroundColorFill = kColor_d3d3d3;
-//
-//    //店铺
-//    self.mapPOIColorLine = kColor_d3d3d3;
-//    self.mapPOIColorFill = kColor_E7F1F9;
-//
-//    //卫生间
-//    self.mapWCColorLine = kColor_d3d3d3;
-//    self.mapWCColorFill = kColor_FEBFD7;
-//
-//    //楼梯
-//    self.mapStairsColorLine = kColor_d3d3d3;
-//    self.mapStairsColorFill = kColor_FEBFD7;
-//
-//    //无效
-//    self.mapInvalidColorLine = kColor_d3d3d3;
-//    self.mapInvalidColorFill = kColor_E9E9E9;
-//
-//
-//    //未知
-//    self.mapUnknownColorLine = kColor_d3d3d3;
-//    self.mapUnknownColorFill = kColor_E9E9E9;
-//
-//    //地图
-//    self.mapBackgroundColor = kColor_F8F6F2;
-//
-    self.navLineWide       = 4;
+    self.compassPosition   = CGPointMake(33, 96);
+    self.navLineWide       = 30;
 }
 
 #pragma mark - map
@@ -112,7 +76,7 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
     //电梯 7，问讯处 6，门 12，5
     RTLbs3DAnnotation * anno = [[RTLbs3DAnnotation alloc] initWithMapPoint:point
                                                                  annoTitle:poiName
-                                                                    annoId:poiName//stony debug
+                                                                    annoId:poiName
                                                                  iconImage:nil
                                                                    floorID:self.floor];
     
@@ -128,9 +92,11 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
 
 - (void) mapViewLoadedSuccess:(RTLbsMapView*)rtmapView
 {
+    WEAKSELF
+    
     if(_mapDidLoadSuc) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            _mapDidLoadSuc();
+            weakSelf.mapDidLoadSuc();
         });
     }
 

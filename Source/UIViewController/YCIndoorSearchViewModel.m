@@ -115,7 +115,7 @@
      {
          
          if(poiArr.count==0) {
-             //stony debug [self ntRequestFail:LocalErr(@"没有搜索到")];
+             [self ntRequestFail:LocalErr(@"没有搜索到")];
              return;
          }
 
@@ -127,7 +127,7 @@
          
      } failBlock:^(NSString *error){
 
-         //stony debug [self ntRequestFail:LocalErr(error)];
+         [self ntRequestFail:LocalErr(error)];
 
          poiapi = nil;
 
@@ -183,26 +183,26 @@
 - (void)ntRequesting
 {
     self.ntReqPrompt = nil;
-//stony debug self.ntReqPhase  = @(NtPhaseRequesting);
+    self.ntReqPhase  = @(NtPhaseRequesting);
 }
 
 - (void)ntRequestSuc:(NSString*)str
 {
     self.ntReqPrompt = str;
-//stony debug self.ntReqPhase  = @(NtPhaseResponseSuc);
+    self.ntReqPhase  = @(NtPhaseResponseSuc);
 }
 
 - (void)ntRequestFail:(NSError *)err
 {
     if (err.code==-1009) {
         self.ntReqPrompt = @"网络未连接";
-//stony debug         self.ntReqPhase  = @(NtPhaseNoConnection);
+        self.ntReqPhase  = @(NtPhaseNoConnection);
     } else if(err.code<0) {
         self.ntReqPrompt = @"网络连接超时";
-        //stony debug self.ntReqPhase  = @(NtPhaseConnectionTimeout);
+        self.ntReqPhase  = @(NtPhaseConnectionTimeout);
     } else {
         self.ntReqPrompt = err.domain;
-        //stony debug self.ntReqPhase  = @(NtPhaseResponseFail);
+        self.ntReqPhase  = @(NtPhaseResponseFail);
     }
     
 }

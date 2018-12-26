@@ -12,6 +12,7 @@
 #import "YCIndoorSearchViewModel.h"
 
 #import "ISWCategory.h"
+#import "ISWToast.h"
 
 #import <Masonry.h>
 
@@ -28,11 +29,11 @@
     YCFavoriteListView   *_favoriteListView;
 
     NSMutableArray       *cellArr;
+    
+    UITableView          *tableView;
 }
 
 @property (nonatomic, strong) YCIndoorSearchViewModel *viewModel;
-
-@property (nonatomic, strong)UITableView *tableView;//stony debug
 
 @end
 
@@ -94,9 +95,9 @@
          NSString *key = [change objectForKey:@"FBKVONotificationKeyPathKey"];
          
          if([key isEqualToString:@"ntReqPhase"]) {
-//stony debug
-//             [weakSelf popToast:[viewModel.ntReqPhase unsignedIntegerValue]
-//                          title:viewModel.ntReqPrompt];
+
+             [weakSelf popToast:[viewModel.ntReqPhase unsignedIntegerValue]
+                          title:viewModel.ntReqPrompt];
              
          } else if ([key isEqualToString:@"searchedPoiArray"]) {
              [weakSelf searchedPoiArrayValueUpdated];
@@ -170,55 +171,55 @@
 - (void)buildTableView
 {
     // Do any additional setup after loading the view.
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(12, 147, kScreenWidth-(12*2), kScreenHeight - 147) style:UITableViewStylePlain];
-    self.tableView.contentInset        = UIEdgeInsetsMake(0, 0, 20, 0);
-    self.tableView.rowHeight           = 56.0;
-    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    self.tableView.showsVerticalScrollIndicator = NO;
-    self.tableView.dataSource = self;
-    self.tableView.delegate   = self;
-    [self.view addSubview:self.tableView];
-    self.tableView.backgroundColor = kColorPageBg;
+    tableView = [[UITableView alloc] initWithFrame:CGRectMake(12, 147, kScreenWidth-(12*2), kScreenHeight - 147) style:UITableViewStylePlain];
+    tableView.contentInset        = UIEdgeInsetsMake(0, 0, 20, 0);
+    tableView.rowHeight           = 56.0;
+    tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    tableView.showsVerticalScrollIndicator = NO;
+    tableView.dataSource = self;
+    tableView.delegate   = self;
+    [self.view addSubview:tableView];
+    tableView.backgroundColor = kColorPageBg;
     self.view.backgroundColor = kColorPageBg;
     
     if (@available(iOS 11.0, *)) {
-        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     } else {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
 
     //表格外形
-    [self.tableView setSeparatorColor:kColorSeparator];
-    [self.tableView isw_noSeparator];
+    [tableView setSeparatorColor:kColorSeparator];
+    [tableView isw_noSeparator];
 }
 
 #pragma mark - pop/dismiss UI
-//stony debug
-//- (void)popToast:(NtPhaseType)type title:(NSString*)title
-//{
-//    switch (type) {
-//        case NtPhaseNone:
-//            [ISWToast dismissToast];
-//            break;
-//
-//        case NtPhaseResponseSuc:
-//            [ISWToast dismissToast];
-//            break;
-//
-//        case NtPhaseConnectionTimeout:
-//        case NtPhaseNoConnection:
-//        case NtPhaseResponseFail:
-//            [ISWToast showFailToast:title];
-//            break;
-//
-//        case NtPhaseRequesting:
-//            [ISWToast showLoadingToast];
-//            break;
-//
-//        default:
-//            break;
-//    }
-//}
+
+- (void)popToast:(NtPhaseType)type title:(NSString*)title
+{
+    switch (type) {
+        case NtPhaseNone:
+            [ISWToast dismissToast];
+            break;
+
+        case NtPhaseResponseSuc:
+            [ISWToast dismissToast];
+            break;
+
+        case NtPhaseConnectionTimeout:
+        case NtPhaseNoConnection:
+        case NtPhaseResponseFail:
+            [ISWToast showFailToast:title];
+            break;
+
+        case NtPhaseRequesting:
+            [ISWToast showLoadingToast];
+            break;
+
+        default:
+            break;
+    }
+}
 
 - (void)popFavoriteListView
 {
@@ -245,12 +246,12 @@
         make.height.equalTo(@(kOnePixel));
     }];
 
-    [self.tableView setTableFooterView:cleanHistoryBtn];
+    [tableView setTableFooterView:cleanHistoryBtn];
 }
 
 - (void)dismissTableFooter
 {
-    [self.tableView setTableFooterView:nil];
+    [tableView setTableFooterView:nil];
 }
 
 #pragma mark - ui event
@@ -324,7 +325,7 @@
     else
         [self dismissTableFooter];
     
-    [self.tableView reloadData];
+    [tableView reloadData];
 
 }
 
@@ -334,7 +335,7 @@
 
     [self dismissTableFooter];
     
-    [self.tableView reloadData];
+    [tableView reloadData];
 }
 
 #pragma mark - router
@@ -365,7 +366,7 @@
         [cellArr addObject:cell];
     }
 
-    [self.tableView reloadData];
+    [tableView reloadData];
 }
 
 - (void)constructHistoryTable

@@ -91,7 +91,6 @@
     
 }
 
-//stony debug 实际中去调整值的大小
 - (BOOL)isNearBy:(CGPoint)pt1 with:(CGPoint)pt2
 {
     CGFloat deltaX = pt1.x - pt2.x;
@@ -106,12 +105,9 @@
     CGFloat minX = 154.0;
     CGFloat maxX = 236.0;
     
-    //stony debug 符号又不对了？
-    //先加载地图，再加载楼层，再加载信号：首次页面非常杂乱
     CGFloat minY = 99.0;
     CGFloat maxY = 148.0;
-    
-    
+        
     for(NSDictionary *itemNav in navigationInfos) {
         
         if(![itemNav[@"floor"] isEqualToString:@"F3"])
@@ -133,8 +129,6 @@
     CGFloat minX = 154.0;
     CGFloat maxX = 236.0;
     
-    //stony debug 符号又不对了？
-    //先加载地图，再加载楼层，再加载信号：首次页面非常杂乱
     CGFloat minY = 99.0;
     CGFloat maxY = 148.0;
     
