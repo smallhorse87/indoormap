@@ -1,0 +1,65 @@
+{
+    "backgroundColor":"#00e3e3e3",
+    "selectColor":"#BFff6c6c",
+    "text":{"color":"#ff666666", "borderColor":"#E8ffffff", "textSize":12},
+
+    "mapBorder":{"use":1, "texName":"border"},
+    "solidcolorMode":{"use":1, "showLabel":1, "showModel":1, "color":"#BF000000", "borderColor":"#ffffffff", "borderWidth":2.5, "height":0, "iconName":"point_white", "iconScale":0.2},
+
+    "enclosure":{"color":"#6600ff00", "borderColor":"#ff0000ff", "borderWidth":2.5},
+    "lighting":{"ambient":[0.8, 0.8, 0.8], "diffuse":[0.2, 0.2, 0.2]},
+    "names":[
+             {"name":"清爽75","showLabel":1, "showModel":1, "color":"#BFffc7e1", "borderColor":"#f7b8d6" },
+             
+             {"name":"MISS SIXTY", "showLabel":1, "showModel":1, "color":"#BFffc7e1", "borderColor":"#f7b8d6", "iconName":"Market/Miss-sixty", "texName":"", "borderWidth":2.5, "height":2, "overlayPriority":0},
+             {"name":"星巴克", "showLabel":1, "showModel":1, "color":"#BFfbf0c3", "borderColor":"#f5e9b8", "iconName":"", "texName":"", "borderWidth":2.5, "height":2, "overlayPriority":0},
+             {"name":"酒店", "showLabel":1, "showModel":1, "color":"#BFfbf0c3", "borderColor":"#f5e9b8", "iconName":"", "texName":"", "borderWidth":2.5, "height":2, "overlayPriority":0},
+             {"name":"SWATCH", "showLabel":1, "showModel":1, "color":"#BFe1c7ff", "borderColor":"#d5b8f6", "iconName":"", "texName":"", "borderWidth":2.5, "height":2, "overlayPriority":0},
+             {"name":"ZARA", "showLabel":1, "showModel":1, "color":"#BFe1c7ff", "borderColor":"#d5b8f6", "iconName":"", "texName":"", "borderWidth":2.5, "height":2, "overlayPriority":0},
+             {"name":"翡拉拉", "showLabel":1, "showModel":1, "color":"#BFe1c7ff", "borderColor":"#d5b8f6", "iconName":"", "texName":"", "borderWidth":2.5, "height":2, "overlayPriority":0},
+             {"name":"Apple", "showLabel":1, "showModel":1, "color":"#BFd7ffc7", "borderColor":"#caf5b9", "iconName":"Market/Apple", "texName":"", "borderWidth":2.5, "height":2, "overlayPriority":0}
+             ],
+    "categories":[
+                  {"no":10, "name":"餐饮美食", "showLabel":1, "color":"#BFf9dcec", "borderColor":"#f2cae1", "iconName":"", "texName":"", "borderWidth":2.5, "height":2.0, "overlayPriority":10},
+                  
+                  {"no":1513, "name":"医疗服务", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"Market/MedicalFirstAid", "texName":"", "borderWidth":2.5, "height":1, "overlayPriority":10},
+                  {"no":150704, "name":"公用电话", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"Market/Tel", "texName":"", "borderWidth":2.5, "height":2, "overlayPriority":10},
+                  {"no":150802, "name":"ATM", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"Market/Atm", "texName":"", "borderWidth":2.5, "height":2, "overlayPriority":10},
+                  {"no":150804, "name":"收款处", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"Market/CashierDesk", "texName":"", "borderWidth":1.2, "height":1, "overlayPriority":10},
+
+                  {"no":1703, "name":"亲子乐园", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"Market/ChildrenPlayground", "texName":"", "borderWidth":2.5, "height":1, "overlayPriority":10},
+                  
+                  {"no":180502, "name":"行李提取", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"Market/BaggageClaimArea", "texName":"", "borderWidth":2.5, "height":0, "overlayPriority":10},
+                  
+                  {"no":1904, "name":"问讯服务", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"Market/Consultation", "texName":"", "borderWidth":2.5, "height":1, "overlayPriority":10},
+                  {"no":190201, "name":"电梯", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"e5e5e5", "iconName":"Market/Elevator", "texName":"", "borderWidth":2.5, "height":0.2, "overlayPriority":10},
+                  {"no":190202, "name":"自动扶梯", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"e5e5e5", "iconName":"Market/Escalator", "texName":"", "borderWidth":2.5, "height":0.2, "overlayPriority":10},
+                  {"no":190203, "name":"楼梯", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"e5e5e5", "iconName":"Market/Stairs", "texName":"", "borderWidth":2.5, "height":0.2, "overlayPriority":10},
+                  {"no":190204, "name":"货梯", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"e5e5e5", "iconName":"Market/Escalator", "texName":"", "borderWidth":2.5, "height":0.2, "overlayPriority":10},
+                  {"no":190206, "name":"出入口", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"e5e5e5", "iconName":"Market/Entrance", "texName":"", "borderWidth":2.5, "height":0.2, "overlayPriority":10},
+                  {"no":190207, "name":"停车场出入口", "showLabel":1, "showModel":0, "color":"#BFeeeeee", "borderColor":"e5e5e5", "iconName":"Market/Entrance", "texName":"", "borderWidth":2.5, "height":0.2, "overlayPriority":10},
+                  {"no":190302, "name":"休息区", "showLabel":1, "showModel":1, "color":"#f6f6f6", "borderColor":"", "iconName":"Market/Resting", "texName":"", "borderWidth":2.5, "height":0, "overlayPriority":10},
+                  {"no":190102, "name":"男卫生间", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"Market/MaleToilet", "texName":"", "borderWidth":2.5, "height":2, "overlayPriority":10},
+                  {"no":190103, "name":"女卫生间", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"Market/FemaleToilet", "texName":"", "borderWidth":2.5, "height":2, "overlayPriority":10},
+                  {"no":190105, "name":"无障碍卫生间", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"Market/DisabledToilet", "texName":"", "borderWidth":2.5, "height":2, "overlayPriority":10},
+                  {"no":190106, "name":"母婴室", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"Market/MotherBabyRoom", "texName":"", "borderWidth":2.5, "height":2, "overlayPriority":10},
+                  {"no":190307, "name":"吸烟室", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"Market/Smoking", "texName":"", "borderWidth":2.5, "height":2, "overlayPriority":10},
+                  
+                  {"no":210100, "name":"功能区-其它", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"", "texName":"", "borderWidth":2.5, "height":0, "overlayPriority":6},
+                  {"no":210101, "name":"公共区", "showLabel":1, "showModel":1, "color":"#f6f6f6", "borderColor":"", "iconName":"", "texName":"", "borderWidth":2.5, "height":0, "overlayPriority":5},
+                  {"no":210102, "name":"控制区", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"", "texName":"", "borderWidth":1.0, "height":2, "overlayPriority":4},
+                  {"no":210103, "name":"楼层底面", "showLabel":1, "showModel":1, "color":"#f6f6f6", "borderColor":"", "iconName":"", "texName":"dizhuan01", "texScale":8, "borderWidth":0, "height":0, "overlayPriority":0},
+                  {"no":210104, "name":"办公区", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"", "texName":"", "borderWidth":2.5, "height":2, "overlayPriority":1},
+                  {"no":210105, "name":"天井(无效区)", "showLabel":1, "showModel":1, "color":"#eeeeee", "borderColor":"#e5e5e5", "iconName":"", "texName":"", "borderWidth":1.0, "height":0, "overlayPriority":3},
+                  {"no":210106, "name":"不可到达区域", "showLabel":1, "showModel":1, "color":"#eeeeee", "borderColor":"#e5e5e5", "iconName":"", "texName":"", "borderWidth":1.0, "height":0, "overlayPriority":2}
+                  ],
+    "styles":[
+              {"id":3, "name":"不可到达区", "showLabel":1, "showModel":1, "color":"#eeeeee", "borderColor":"", "iconName":"", "texName":"", "borderWidth":1, "height":0, "overlayPriority":0},
+              {"id":4, "name":"无效区域", "showLabel":1, "showModel":1, "color":"#eeeeee", "borderColor":"", "iconName":"", "texName":"", "borderWidth":1, "height":2, "overlayPriority":0},
+              {"id":5, "name":"商铺", "showLabel":1, "showModel":1, "color":"#BFc7e7ff", "borderColor":"#a7d4f7", "iconName":"", "texName":"", "borderWidth":1, "height":2.0, "overlayPriority":10},
+              {"id":6, "name":"卫生间", "showLabel":1, "showModel":1, "color":"#BFe3e3e3", "borderColor":"#dddddd", "iconName":"", "texName":"", "borderWidth":1, "height":2.0, "overlayPriority":10},
+              {"id":7, "name":"楼梯", "showLabel":1, "showModel":1, "color":"#BFeeeeee", "borderColor":"#e5e5e5", "iconName":"Market/Stairs", "texName":"", "borderWidth":1, "height":0, "overlayPriority":10},
+              {"id":8, "name":"楼面", "showLabel":1, "color":"#dddddd", "borderColor":"", "iconName":"", "texName":"", "borderWidth":1, "height":0, "overlayPriority":0}
+              ]
+}
+

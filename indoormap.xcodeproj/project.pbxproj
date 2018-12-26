@@ -7,25 +7,124 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8151F50321D30AEA00A5089C /* RealtimeGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4CE21D30AEA00A5089C /* RealtimeGuide.m */; };
+		8151F50421D30AEA00A5089C /* YCFavoriteListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4D021D30AEA00A5089C /* YCFavoriteListView.m */; };
+		8151F50521D30AEA00A5089C /* YCFloorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4D221D30AEA00A5089C /* YCFloorPicker.m */; };
+		8151F50621D30AEA00A5089C /* YCGuidingBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4D421D30AEA00A5089C /* YCGuidingBottomView.m */; };
+		8151F50721D30AEA00A5089C /* YCGuidingNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4D621D30AEA00A5089C /* YCGuidingNavBar.m */; };
+		8151F50821D30AEA00A5089C /* YCIndoorMapPrompt.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4D821D30AEA00A5089C /* YCIndoorMapPrompt.m */; };
+		8151F50921D30AEA00A5089C /* YCIndoorMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4DA21D30AEA00A5089C /* YCIndoorMapView.m */; };
+		8151F50A21D30AEA00A5089C /* YCMapLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4DC21D30AEA00A5089C /* YCMapLocationService.m */; };
+		8151F50B21D30AEA00A5089C /* YCMapSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4DE21D30AEA00A5089C /* YCMapSearchCell.m */; };
+		8151F50C21D30AEA00A5089C /* YCNoBlueToothView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4E021D30AEA00A5089C /* YCNoBlueToothView.m */; };
+		8151F50D21D30AEA00A5089C /* YCPinBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4E221D30AEA00A5089C /* YCPinBottomView.m */; };
+		8151F50E21D30AEA00A5089C /* YCPinNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4E421D30AEA00A5089C /* YCPinNavBar.m */; };
+		8151F50F21D30AEA00A5089C /* YCSearchNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4E621D30AEA00A5089C /* YCSearchNavBar.m */; };
+		8151F51021D30AEA00A5089C /* YCIndoorMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4E921D30AEA00A5089C /* YCIndoorMapViewController.m */; };
+		8151F51121D30AEA00A5089C /* YCIndoorMapViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4EB21D30AEA00A5089C /* YCIndoorMapViewModel.m */; };
+		8151F51221D30AEA00A5089C /* YCIndoorSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4ED21D30AEA00A5089C /* YCIndoorSearchViewController.m */; };
+		8151F51321D30AEA00A5089C /* YCIndoorSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F4EF21D30AEA00A5089C /* YCIndoorSearchViewModel.m */; };
+		8151F51421D30AEA00A5089C /* RTLbsLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F4F221D30AEA00A5089C /* RTLbsLocation.a */; };
+		8151F51521D30AEA00A5089C /* lib3DMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F4F721D30AEA00A5089C /* lib3DMapView.a */; };
+		8151F51621D30AEA00A5089C /* RtmapRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8151F4FF21D30AEA00A5089C /* RtmapRes.bundle */; };
+		8151F51721D30AEA00A5089C /* RtmapApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F50221D30AEA00A5089C /* RtmapApi.m */; };
+		8151F51C21D30CCE00A5089C /* BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F51B21D30CCE00A5089C /* BaseCell.m */; };
+		8151F51E21D3136300A5089C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F51D21D3136300A5089C /* libsqlite3.tbd */; };
+		8151F52021D3143E00A5089C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F51F21D3143E00A5089C /* SystemConfiguration.framework */; };
+		8151F52221D3144800A5089C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F52121D3144800A5089C /* CoreLocation.framework */; };
+		8151F52421D3145000A5089C /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F52321D3145000A5089C /* CoreBluetooth.framework */; };
+		8151F52621D3145800A5089C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F52521D3145800A5089C /* CoreMotion.framework */; };
+		8151F52821D3146200A5089C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F52721D3146200A5089C /* libz.tbd */; };
+		8151F52A21D3146B00A5089C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F52921D3146B00A5089C /* libc++.tbd */; };
+		8151F52C21D3147400A5089C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F52B21D3147400A5089C /* OpenGLES.framework */; };
+		8151F52E21D3147C00A5089C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F52D21D3147C00A5089C /* QuartzCore.framework */; };
+		8151F53021D3148300A5089C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F52F21D3148300A5089C /* CoreGraphics.framework */; };
 		818ACF5A21D3007800138683 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 818ACF5921D3007800138683 /* AppDelegate.m */; };
 		818ACF5D21D3007800138683 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 818ACF5C21D3007800138683 /* ViewController.m */; };
-		818ACF6021D3007800138683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 818ACF5E21D3007800138683 /* Main.storyboard */; };
 		818ACF6221D3007B00138683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 818ACF6121D3007B00138683 /* Assets.xcassets */; };
 		818ACF6521D3007B00138683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 818ACF6321D3007B00138683 /* LaunchScreen.storyboard */; };
 		818ACF6821D3007B00138683 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 818ACF6721D3007B00138683 /* main.m */; };
+		818ACF7021D302A600138683 /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = 818ACF6E21D302A600138683 /* podfile */; };
+		9C6645B1939BA36418FF4D3D /* libPods-indoormap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 559451933D7A8F28AC9173C8 /* libPods-indoormap.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01CC7971770B09A3EC42646C /* Pods-indoormap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-indoormap.release.xcconfig"; path = "Pods/Target Support Files/Pods-indoormap/Pods-indoormap.release.xcconfig"; sourceTree = "<group>"; };
+		3CF7B47B7F0C88699883BA11 /* Pods-indoormap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-indoormap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-indoormap/Pods-indoormap.debug.xcconfig"; sourceTree = "<group>"; };
+		559451933D7A8F28AC9173C8 /* libPods-indoormap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-indoormap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8151F4CD21D30AEA00A5089C /* RealtimeGuide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealtimeGuide.h; sourceTree = "<group>"; };
+		8151F4CE21D30AEA00A5089C /* RealtimeGuide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealtimeGuide.m; sourceTree = "<group>"; };
+		8151F4CF21D30AEA00A5089C /* YCFavoriteListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCFavoriteListView.h; sourceTree = "<group>"; };
+		8151F4D021D30AEA00A5089C /* YCFavoriteListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCFavoriteListView.m; sourceTree = "<group>"; };
+		8151F4D121D30AEA00A5089C /* YCFloorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCFloorPicker.h; sourceTree = "<group>"; };
+		8151F4D221D30AEA00A5089C /* YCFloorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCFloorPicker.m; sourceTree = "<group>"; };
+		8151F4D321D30AEA00A5089C /* YCGuidingBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCGuidingBottomView.h; sourceTree = "<group>"; };
+		8151F4D421D30AEA00A5089C /* YCGuidingBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCGuidingBottomView.m; sourceTree = "<group>"; };
+		8151F4D521D30AEA00A5089C /* YCGuidingNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCGuidingNavBar.h; sourceTree = "<group>"; };
+		8151F4D621D30AEA00A5089C /* YCGuidingNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCGuidingNavBar.m; sourceTree = "<group>"; };
+		8151F4D721D30AEA00A5089C /* YCIndoorMapPrompt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIndoorMapPrompt.h; sourceTree = "<group>"; };
+		8151F4D821D30AEA00A5089C /* YCIndoorMapPrompt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIndoorMapPrompt.m; sourceTree = "<group>"; };
+		8151F4D921D30AEA00A5089C /* YCIndoorMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIndoorMapView.h; sourceTree = "<group>"; };
+		8151F4DA21D30AEA00A5089C /* YCIndoorMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIndoorMapView.m; sourceTree = "<group>"; };
+		8151F4DB21D30AEA00A5089C /* YCMapLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCMapLocationService.h; sourceTree = "<group>"; };
+		8151F4DC21D30AEA00A5089C /* YCMapLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCMapLocationService.m; sourceTree = "<group>"; };
+		8151F4DD21D30AEA00A5089C /* YCMapSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCMapSearchCell.h; sourceTree = "<group>"; };
+		8151F4DE21D30AEA00A5089C /* YCMapSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCMapSearchCell.m; sourceTree = "<group>"; };
+		8151F4DF21D30AEA00A5089C /* YCNoBlueToothView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCNoBlueToothView.h; sourceTree = "<group>"; };
+		8151F4E021D30AEA00A5089C /* YCNoBlueToothView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCNoBlueToothView.m; sourceTree = "<group>"; };
+		8151F4E121D30AEA00A5089C /* YCPinBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCPinBottomView.h; sourceTree = "<group>"; };
+		8151F4E221D30AEA00A5089C /* YCPinBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCPinBottomView.m; sourceTree = "<group>"; };
+		8151F4E321D30AEA00A5089C /* YCPinNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCPinNavBar.h; sourceTree = "<group>"; };
+		8151F4E421D30AEA00A5089C /* YCPinNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCPinNavBar.m; sourceTree = "<group>"; };
+		8151F4E521D30AEA00A5089C /* YCSearchNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCSearchNavBar.h; sourceTree = "<group>"; };
+		8151F4E621D30AEA00A5089C /* YCSearchNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCSearchNavBar.m; sourceTree = "<group>"; };
+		8151F4E821D30AEA00A5089C /* YCIndoorMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIndoorMapViewController.h; sourceTree = "<group>"; };
+		8151F4E921D30AEA00A5089C /* YCIndoorMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIndoorMapViewController.m; sourceTree = "<group>"; };
+		8151F4EA21D30AEA00A5089C /* YCIndoorMapViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIndoorMapViewModel.h; sourceTree = "<group>"; };
+		8151F4EB21D30AEA00A5089C /* YCIndoorMapViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIndoorMapViewModel.m; sourceTree = "<group>"; };
+		8151F4EC21D30AEA00A5089C /* YCIndoorSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIndoorSearchViewController.h; sourceTree = "<group>"; };
+		8151F4ED21D30AEA00A5089C /* YCIndoorSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIndoorSearchViewController.m; sourceTree = "<group>"; };
+		8151F4EE21D30AEA00A5089C /* YCIndoorSearchViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCIndoorSearchViewModel.h; sourceTree = "<group>"; };
+		8151F4EF21D30AEA00A5089C /* YCIndoorSearchViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCIndoorSearchViewModel.m; sourceTree = "<group>"; };
+		8151F4F121D30AEA00A5089C /* RLFenceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RLFenceInfo.h; sourceTree = "<group>"; };
+		8151F4F221D30AEA00A5089C /* RTLbsLocation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = RTLbsLocation.a; sourceTree = "<group>"; };
+		8151F4F321D30AEA00A5089C /* RTLbsLocationVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLbsLocationVersion.h; sourceTree = "<group>"; };
+		8151F4F421D30AEA00A5089C /* RTLbsLocPoiInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLbsLocPoiInfo.h; sourceTree = "<group>"; };
+		8151F4F521D30AEA00A5089C /* RTMapLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMapLocationManager.h; sourceTree = "<group>"; };
+		8151F4F721D30AEA00A5089C /* lib3DMapView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = lib3DMapView.a; sourceTree = "<group>"; };
+		8151F4F821D30AEA00A5089C /* RTLbs3DAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLbs3DAnnotation.h; sourceTree = "<group>"; };
+		8151F4F921D30AEA00A5089C /* RTLbs3DNavigationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLbs3DNavigationInfo.h; sourceTree = "<group>"; };
+		8151F4FA21D30AEA00A5089C /* RTLbs3DPOIMessageClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLbs3DPOIMessageClass.h; sourceTree = "<group>"; };
+		8151F4FB21D30AEA00A5089C /* RTLbs3DWebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLbs3DWebService.h; sourceTree = "<group>"; };
+		8151F4FC21D30AEA00A5089C /* RTLbsMapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLbsMapManager.h; sourceTree = "<group>"; };
+		8151F4FD21D30AEA00A5089C /* RTLbsMapVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLbsMapVersion.h; sourceTree = "<group>"; };
+		8151F4FE21D30AEA00A5089C /* RTLbsMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLbsMapView.h; sourceTree = "<group>"; };
+		8151F4FF21D30AEA00A5089C /* RtmapRes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RtmapRes.bundle; sourceTree = "<group>"; };
+		8151F50121D30AEA00A5089C /* RtmapApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RtmapApi.h; sourceTree = "<group>"; };
+		8151F50221D30AEA00A5089C /* RtmapApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RtmapApi.m; sourceTree = "<group>"; };
+		8151F51921D30B6B00A5089C /* YCDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCDefines.h; sourceTree = "<group>"; };
+		8151F51A21D30CCE00A5089C /* BaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCell.h; sourceTree = "<group>"; };
+		8151F51B21D30CCE00A5089C /* BaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCell.m; sourceTree = "<group>"; };
+		8151F51D21D3136300A5089C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		8151F51F21D3143E00A5089C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8151F52121D3144800A5089C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8151F52321D3145000A5089C /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		8151F52521D3145800A5089C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		8151F52721D3146200A5089C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		8151F52921D3146B00A5089C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		8151F52B21D3147400A5089C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		8151F52D21D3147C00A5089C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8151F52F21D3148300A5089C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		818ACF5521D3007800138683 /* indoormap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = indoormap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		818ACF5821D3007800138683 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		818ACF5921D3007800138683 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		818ACF5B21D3007800138683 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		818ACF5C21D3007800138683 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		818ACF5F21D3007800138683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		818ACF6121D3007B00138683 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		818ACF6421D3007B00138683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		818ACF6621D3007B00138683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		818ACF6721D3007B00138683 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		818ACF6E21D302A600138683 /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +132,156 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8151F53021D3148300A5089C /* CoreGraphics.framework in Frameworks */,
+				8151F52E21D3147C00A5089C /* QuartzCore.framework in Frameworks */,
+				8151F52C21D3147400A5089C /* OpenGLES.framework in Frameworks */,
+				8151F52A21D3146B00A5089C /* libc++.tbd in Frameworks */,
+				8151F52821D3146200A5089C /* libz.tbd in Frameworks */,
+				8151F52621D3145800A5089C /* CoreMotion.framework in Frameworks */,
+				8151F52421D3145000A5089C /* CoreBluetooth.framework in Frameworks */,
+				8151F52221D3144800A5089C /* CoreLocation.framework in Frameworks */,
+				8151F52021D3143E00A5089C /* SystemConfiguration.framework in Frameworks */,
+				8151F51E21D3136300A5089C /* libsqlite3.tbd in Frameworks */,
+				8151F51421D30AEA00A5089C /* RTLbsLocation.a in Frameworks */,
+				9C6645B1939BA36418FF4D3D /* libPods-indoormap.a in Frameworks */,
+				8151F51521D30AEA00A5089C /* lib3DMapView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DB496FB32C204AEA96A678B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8151F52F21D3148300A5089C /* CoreGraphics.framework */,
+				8151F52D21D3147C00A5089C /* QuartzCore.framework */,
+				8151F52B21D3147400A5089C /* OpenGLES.framework */,
+				8151F52921D3146B00A5089C /* libc++.tbd */,
+				8151F52721D3146200A5089C /* libz.tbd */,
+				8151F52521D3145800A5089C /* CoreMotion.framework */,
+				8151F52321D3145000A5089C /* CoreBluetooth.framework */,
+				8151F52121D3144800A5089C /* CoreLocation.framework */,
+				8151F51F21D3143E00A5089C /* SystemConfiguration.framework */,
+				8151F51D21D3136300A5089C /* libsqlite3.tbd */,
+				559451933D7A8F28AC9173C8 /* libPods-indoormap.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6A1124C63BC05E8F5A06C5B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3CF7B47B7F0C88699883BA11 /* Pods-indoormap.debug.xcconfig */,
+				01CC7971770B09A3EC42646C /* Pods-indoormap.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8151F4CC21D30AEA00A5089C /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				8151F4CD21D30AEA00A5089C /* RealtimeGuide.h */,
+				8151F4CE21D30AEA00A5089C /* RealtimeGuide.m */,
+				8151F4CF21D30AEA00A5089C /* YCFavoriteListView.h */,
+				8151F4D021D30AEA00A5089C /* YCFavoriteListView.m */,
+				8151F4D121D30AEA00A5089C /* YCFloorPicker.h */,
+				8151F4D221D30AEA00A5089C /* YCFloorPicker.m */,
+				8151F4D321D30AEA00A5089C /* YCGuidingBottomView.h */,
+				8151F4D421D30AEA00A5089C /* YCGuidingBottomView.m */,
+				8151F4D521D30AEA00A5089C /* YCGuidingNavBar.h */,
+				8151F4D621D30AEA00A5089C /* YCGuidingNavBar.m */,
+				8151F4D721D30AEA00A5089C /* YCIndoorMapPrompt.h */,
+				8151F4D821D30AEA00A5089C /* YCIndoorMapPrompt.m */,
+				8151F4D921D30AEA00A5089C /* YCIndoorMapView.h */,
+				8151F4DA21D30AEA00A5089C /* YCIndoorMapView.m */,
+				8151F4DB21D30AEA00A5089C /* YCMapLocationService.h */,
+				8151F4DC21D30AEA00A5089C /* YCMapLocationService.m */,
+				8151F4DD21D30AEA00A5089C /* YCMapSearchCell.h */,
+				8151F4DE21D30AEA00A5089C /* YCMapSearchCell.m */,
+				8151F4DF21D30AEA00A5089C /* YCNoBlueToothView.h */,
+				8151F4E021D30AEA00A5089C /* YCNoBlueToothView.m */,
+				8151F4E121D30AEA00A5089C /* YCPinBottomView.h */,
+				8151F4E221D30AEA00A5089C /* YCPinBottomView.m */,
+				8151F4E321D30AEA00A5089C /* YCPinNavBar.h */,
+				8151F4E421D30AEA00A5089C /* YCPinNavBar.m */,
+				8151F4E521D30AEA00A5089C /* YCSearchNavBar.h */,
+				8151F4E621D30AEA00A5089C /* YCSearchNavBar.m */,
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		8151F4E721D30AEA00A5089C /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8151F4E821D30AEA00A5089C /* YCIndoorMapViewController.h */,
+				8151F4E921D30AEA00A5089C /* YCIndoorMapViewController.m */,
+				8151F4EA21D30AEA00A5089C /* YCIndoorMapViewModel.h */,
+				8151F4EB21D30AEA00A5089C /* YCIndoorMapViewModel.m */,
+				8151F4EC21D30AEA00A5089C /* YCIndoorSearchViewController.h */,
+				8151F4ED21D30AEA00A5089C /* YCIndoorSearchViewController.m */,
+				8151F4EE21D30AEA00A5089C /* YCIndoorSearchViewModel.h */,
+				8151F4EF21D30AEA00A5089C /* YCIndoorSearchViewModel.m */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
+		8151F4F021D30AEA00A5089C /* RTBSLocationSDK */ = {
+			isa = PBXGroup;
+			children = (
+				8151F4F121D30AEA00A5089C /* RLFenceInfo.h */,
+				8151F4F221D30AEA00A5089C /* RTLbsLocation.a */,
+				8151F4F321D30AEA00A5089C /* RTLbsLocationVersion.h */,
+				8151F4F421D30AEA00A5089C /* RTLbsLocPoiInfo.h */,
+				8151F4F521D30AEA00A5089C /* RTMapLocationManager.h */,
+			);
+			path = RTBSLocationSDK;
+			sourceTree = "<group>";
+		};
+		8151F4F621D30AEA00A5089C /* RTLbsMapSDK_V2.3.7 */ = {
+			isa = PBXGroup;
+			children = (
+				8151F4F721D30AEA00A5089C /* lib3DMapView.a */,
+				8151F4F821D30AEA00A5089C /* RTLbs3DAnnotation.h */,
+				8151F4F921D30AEA00A5089C /* RTLbs3DNavigationInfo.h */,
+				8151F4FA21D30AEA00A5089C /* RTLbs3DPOIMessageClass.h */,
+				8151F4FB21D30AEA00A5089C /* RTLbs3DWebService.h */,
+				8151F4FC21D30AEA00A5089C /* RTLbsMapManager.h */,
+				8151F4FD21D30AEA00A5089C /* RTLbsMapVersion.h */,
+				8151F4FE21D30AEA00A5089C /* RTLbsMapView.h */,
+				8151F4FF21D30AEA00A5089C /* RtmapRes.bundle */,
+			);
+			path = RTLbsMapSDK_V2.3.7;
+			sourceTree = "<group>";
+		};
+		8151F50021D30AEA00A5089C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8151F50121D30AEA00A5089C /* RtmapApi.h */,
+				8151F50221D30AEA00A5089C /* RtmapApi.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8151F51821D30B5800A5089C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8151F51A21D30CCE00A5089C /* BaseCell.h */,
+				8151F51B21D30CCE00A5089C /* BaseCell.m */,
+				8151F51921D30B6B00A5089C /* YCDefines.h */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		818ACF4C21D3007800138683 = {
 			isa = PBXGroup;
 			children = (
+				818ACF6E21D302A600138683 /* podfile */,
+				818ACF6F21D302A600138683 /* Source */,
 				818ACF5721D3007800138683 /* indoormap */,
 				818ACF5621D3007800138683 /* Products */,
+				6A1124C63BC05E8F5A06C5B3 /* Pods */,
+				3DB496FB32C204AEA96A678B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,13 +300,25 @@
 				818ACF5921D3007800138683 /* AppDelegate.m */,
 				818ACF5B21D3007800138683 /* ViewController.h */,
 				818ACF5C21D3007800138683 /* ViewController.m */,
-				818ACF5E21D3007800138683 /* Main.storyboard */,
 				818ACF6121D3007B00138683 /* Assets.xcassets */,
 				818ACF6321D3007B00138683 /* LaunchScreen.storyboard */,
 				818ACF6621D3007B00138683 /* Info.plist */,
 				818ACF6721D3007B00138683 /* main.m */,
 			);
 			path = indoormap;
+			sourceTree = "<group>";
+		};
+		818ACF6F21D302A600138683 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				8151F51821D30B5800A5089C /* Utilities */,
+				8151F4F021D30AEA00A5089C /* RTBSLocationSDK */,
+				8151F4F621D30AEA00A5089C /* RTLbsMapSDK_V2.3.7 */,
+				8151F4CC21D30AEA00A5089C /* UIComponent */,
+				8151F4E721D30AEA00A5089C /* UIViewController */,
+				8151F50021D30AEA00A5089C /* ViewModel */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,9 +328,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 818ACF6B21D3007B00138683 /* Build configuration list for PBXNativeTarget "indoormap" */;
 			buildPhases = (
+				E6C8579686ED96F0383E458B /* [CP] Check Pods Manifest.lock */,
 				818ACF5121D3007800138683 /* Sources */,
 				818ACF5221D3007800138683 /* Frameworks */,
 				818ACF5321D3007800138683 /* Resources */,
+				244BB7B3DE651838ACDF8C9A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,36 +380,87 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				818ACF7021D302A600138683 /* podfile in Resources */,
+				8151F51621D30AEA00A5089C /* RtmapRes.bundle in Resources */,
 				818ACF6521D3007B00138683 /* LaunchScreen.storyboard in Resources */,
 				818ACF6221D3007B00138683 /* Assets.xcassets in Resources */,
-				818ACF6021D3007800138683 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		244BB7B3DE651838ACDF8C9A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-indoormap/Pods-indoormap-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-indoormap/Pods-indoormap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6C8579686ED96F0383E458B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-indoormap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		818ACF5121D3007800138683 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8151F50C21D30AEA00A5089C /* YCNoBlueToothView.m in Sources */,
+				8151F50621D30AEA00A5089C /* YCGuidingBottomView.m in Sources */,
+				8151F50721D30AEA00A5089C /* YCGuidingNavBar.m in Sources */,
+				8151F50D21D30AEA00A5089C /* YCPinBottomView.m in Sources */,
 				818ACF5D21D3007800138683 /* ViewController.m in Sources */,
+				8151F50821D30AEA00A5089C /* YCIndoorMapPrompt.m in Sources */,
+				8151F50B21D30AEA00A5089C /* YCMapSearchCell.m in Sources */,
+				8151F50F21D30AEA00A5089C /* YCSearchNavBar.m in Sources */,
+				8151F51121D30AEA00A5089C /* YCIndoorMapViewModel.m in Sources */,
+				8151F51021D30AEA00A5089C /* YCIndoorMapViewController.m in Sources */,
+				8151F50421D30AEA00A5089C /* YCFavoriteListView.m in Sources */,
+				8151F50E21D30AEA00A5089C /* YCPinNavBar.m in Sources */,
 				818ACF6821D3007B00138683 /* main.m in Sources */,
+				8151F50921D30AEA00A5089C /* YCIndoorMapView.m in Sources */,
+				8151F51221D30AEA00A5089C /* YCIndoorSearchViewController.m in Sources */,
 				818ACF5A21D3007800138683 /* AppDelegate.m in Sources */,
+				8151F50521D30AEA00A5089C /* YCFloorPicker.m in Sources */,
+				8151F51321D30AEA00A5089C /* YCIndoorSearchViewModel.m in Sources */,
+				8151F50A21D30AEA00A5089C /* YCMapLocationService.m in Sources */,
+				8151F51721D30AEA00A5089C /* RtmapApi.m in Sources */,
+				8151F51C21D30CCE00A5089C /* BaseCell.m in Sources */,
+				8151F50321D30AEA00A5089C /* RealtimeGuide.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		818ACF5E21D3007800138683 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				818ACF5F21D3007800138683 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		818ACF6321D3007B00138683 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -204,6 +507,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -220,7 +524,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -263,6 +567,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -273,7 +578,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -283,6 +588,7 @@
 		};
 		818ACF6C21D3007B00138683 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CF7B47B7F0C88699883BA11 /* Pods-indoormap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -292,14 +598,20 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhitian.indoormap;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Source/RTBSLocationSDK",
+					"$(PROJECT_DIR)/Source/RTLbsMapSDK_V2.3.7",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhitian.youngcity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		818ACF6D21D3007B00138683 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01CC7971770B09A3EC42646C /* Pods-indoormap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -309,9 +621,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zhitian.indoormap;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Source/RTBSLocationSDK",
+					"$(PROJECT_DIR)/Source/RTLbsMapSDK_V2.3.7",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.zhitian.youngcity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
