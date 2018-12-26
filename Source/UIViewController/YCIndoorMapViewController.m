@@ -903,7 +903,7 @@
         }
     }
 
-    return imgName;
+    return [@"YCIndoorMap.bundle/" stringByAppendingString:imgName];
 }
 
 - (NSString*)quickPoiIcon:(NSString*)poiName
