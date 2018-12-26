@@ -37,7 +37,7 @@ RTLbs3DWebService *webService;
 {
     RTLbs3DWebService *webService = [[RTLbs3DWebService alloc] init];
     webService.delegate = self;
-    webService.serverUrl = RTLbs_ServerAddress;
+    webService.serverUrl = Indoormap_ServerAddress;
 
     poiSearchSucBlock = sucBlock;
     poiSearchFailBloc = failBlock;
@@ -60,12 +60,12 @@ RTLbs3DWebService *webService;
 {
     webService = [[RTLbs3DWebService alloc] init];
     webService.delegate = self;
-    webService.serverUrl = RTLbs_ServerAddress;
+    webService.serverUrl = Indoormap_ServerAddress;
     
     floorinfosSucBlock = sucBlock;
     floorinfosFailBloc = failBlock;
 
-    BOOL isSuccess = [webService getBuildFloorInfo:Bodimall_BuildId];
+    BOOL isSuccess = [webService getBuildFloorInfo:Indoormap_BuildId];
     if (isSuccess)
     {
         NSLog(@"获取建筑物楼层发送成功");

@@ -82,9 +82,9 @@
 {
     RTLbs3DWebService *webService = [[RTLbs3DWebService alloc] init];
     webService.delegate = self;
-    webService.serverUrl = RTLbs_ServerAddress;
+    webService.serverUrl = Indoormap_ServerAddress;
     BOOL isSuccess =  [webService getKeywordSearch:_keyword
-                                           buildID:Bodimall_BuildId
+                                           buildID:Indoormap_BuildId
                                              Floor:nil];
     
     if (isSuccess)
@@ -109,13 +109,13 @@
     poiapi = [[RtmapApi alloc]init];
 
     [poiapi requestPOIsWithkeyword:name
-                           buildId:Bodimall_BuildId
+                           buildId:Indoormap_BuildId
                              floor:floor
                           sucBlock:^(NSArray * poiArr)
      {
          
          if(poiArr.count==0) {
-             [self ntRequestFail:LocalErr(@"没有搜索到")];
+             [self ntRequestFail:YCLocalErr(@"没有搜索到")];
              return;
          }
 
@@ -127,7 +127,7 @@
          
      } failBlock:^(NSString *error){
 
-         [self ntRequestFail:LocalErr(error)];
+         [self ntRequestFail:YCLocalErr(error)];
 
          poiapi = nil;
 
@@ -183,26 +183,26 @@
 - (void)ntRequesting
 {
     self.ntReqPrompt = nil;
-    self.ntReqPhase  = @(NtPhaseRequesting);
+    self.ntReqPhase  = @(YcNtPhaseRequesting);
 }
 
 - (void)ntRequestSuc:(NSString*)str
 {
     self.ntReqPrompt = str;
-    self.ntReqPhase  = @(NtPhaseResponseSuc);
+    self.ntReqPhase  = @(YcNtPhaseResponseSuc);
 }
 
 - (void)ntRequestFail:(NSError *)err
 {
     if (err.code==-1009) {
         self.ntReqPrompt = @"网络未连接";
-        self.ntReqPhase  = @(NtPhaseNoConnection);
+        self.ntReqPhase  = @(YcNtPhaseNoConnection);
     } else if(err.code<0) {
         self.ntReqPrompt = @"网络连接超时";
-        self.ntReqPhase  = @(NtPhaseConnectionTimeout);
+        self.ntReqPhase  = @(YcNtPhaseConnectionTimeout);
     } else {
         self.ntReqPrompt = err.domain;
-        self.ntReqPhase  = @(NtPhaseResponseFail);
+        self.ntReqPhase  = @(YcNtPhaseResponseFail);
     }
     
 }

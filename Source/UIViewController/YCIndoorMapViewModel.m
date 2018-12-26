@@ -162,7 +162,7 @@
             if(_location!=nil) {
                 [weakSelf onRoutePlanReq];
             } else {
-                [weakSelf ntRequestFail:LocalErr(@"定位失败，换个地方试试。")];
+                [weakSelf ntRequestFail:YCLocalErr(@"定位失败，换个地方试试。")];
             }
         });
     }
@@ -199,7 +199,7 @@
     _myapi = [[RtmapApi alloc]init];
 
     [_myapi requestPOIsWithkeyword:_initedKeyword
-                           buildId:Bodimall_BuildId
+                           buildId:Indoormap_BuildId
                              floor:_initedFloor
     sucBlock:^(NSArray *poiArr)
     {
@@ -247,7 +247,7 @@
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if(_location==nil) {
-            [weakSelf ntRequestFail:LocalErr(@"定位失败，换个地方试试。")];
+            [weakSelf ntRequestFail:YCLocalErr(@"定位失败，换个地方试试。")];
         } else {
             [weakSelf ntRequestSuc:@"定位成功。"];
         }
@@ -257,7 +257,7 @@
 
 - (void)onFloorInfosReq
 {
-    NSArray *floorArr = nil;//stony debug [AppContext retriveFloorList:Bodimall_BuildId];
+    NSArray *floorArr = nil;//stony debug [AppContext retriveFloorList:Indoormap_BuildId];
     
     if(floorArr.count!=0) {
         self.floorArr = floorArr;
@@ -281,7 +281,7 @@
         weakSelf.floorArr = floorArr;
         floorsApi = nil;
 
-        //stony debug [AppContext cacheFloorList:Bodimall_BuildId floorArr:floorArr];
+        //stony debug [AppContext cacheFloorList:Indoormap_BuildId floorArr:floorArr];
 
     } fail:^(NSString *error) {
         floorsApi = nil;
@@ -317,12 +317,12 @@
     RTLbs3DAnnotation* myLocationAnnotation = [self locationToAnnotation:_location];
 
     [_mapView mapViewNavgationStartPoint:myLocationAnnotation.location
-                              buildingID:Bodimall_BuildId
+                              buildingID:Indoormap_BuildId
                                  floorID:[myLocationAnnotation.annotationFloor uppercaseString]
                                 delegate:self];
     
     [_mapView mapViewNavgationEndPoint:_pinAnnotation.location
-                            buildingID:Bodimall_BuildId
+                            buildingID:Indoormap_BuildId
                                floorID:[_pinAnnotation.annotationFloor uppercaseString]
                               delegate:self];
     
@@ -330,7 +330,7 @@
 
 - (void) navigationRequestFail:(NSString *)error
 {
-    [self ntRequestFail:LocalErr(error)];
+    [self ntRequestFail:YCLocalErr(error)];
 }
 
 - (void) navigationRequestFinish:(NSMutableArray*)navigationInfo
@@ -374,7 +374,7 @@
     poiapi = [[RtmapApi alloc]init];
 
     [poiapi requestPOIsWithkeyword:keyword
-                          buildId:Bodimall_BuildId
+                          buildId:Indoormap_BuildId
                             floor:_currentFloor
                          sucBlock:^(NSArray * poiArr)
      {
@@ -399,7 +399,7 @@
     poiapi = [[RtmapApi alloc]init];
     
     [poiapi requestPOIsWithkeyword:keyword
-                           buildId:Bodimall_BuildId
+                           buildId:Indoormap_BuildId
                              floor:_currentFloor
                           sucBlock:^(NSArray * poiArr)
      {
@@ -424,7 +424,7 @@
     poiapi = [[RtmapApi alloc]init];
     
     [poiapi requestPOIsWithkeyword:keyword
-                           buildId:Bodimall_BuildId
+                           buildId:Indoormap_BuildId
                              floor:_currentFloor
                           sucBlock:^(NSArray * poiArr)
      {
@@ -449,7 +449,7 @@
     poiapi = [[RtmapApi alloc]init];
     
     [poiapi requestPOIsWithkeyword:keyword
-                           buildId:Bodimall_BuildId
+                           buildId:Indoormap_BuildId
                              floor:_currentFloor
                           sucBlock:^(NSArray * poiArr)
      {
@@ -474,7 +474,7 @@
     poiapi = [[RtmapApi alloc]init];
     
     [poiapi requestPOIsWithkeyword:keyword
-                           buildId:Bodimall_BuildId
+                           buildId:Indoormap_BuildId
                              floor:_currentFloor
                           sucBlock:^(NSArray * poiArr)
      {
@@ -499,7 +499,7 @@
     poiapi = [[RtmapApi alloc]init];
     
     [poiapi requestPOIsWithkeyword:keyword
-                           buildId:Bodimall_BuildId
+                           buildId:Indoormap_BuildId
                              floor:_currentFloor
                           sucBlock:^(NSArray * poiArr)
      {
@@ -635,26 +635,26 @@
 - (void)ntRequesting
 {
     self.ntReqPrompt = nil;
-    self.ntReqPhase  = @(NtPhaseRequesting);
+    self.ntReqPhase  = @(YcNtPhaseRequesting);
 }
 
 - (void)ntRequestSuc:(NSString*)str
 {
     self.ntReqPrompt = str;
-    self.ntReqPhase  = @(NtPhaseResponseSuc);
+    self.ntReqPhase  = @(YcNtPhaseResponseSuc);
 }
 
 - (void)ntRequestFail:(NSError *)err
 {
     if (err.code==-1009) {
         self.ntReqPrompt = @"网络未连接";
-        self.ntReqPhase  = @(NtPhaseNoConnection);
+        self.ntReqPhase  = @(YcNtPhaseNoConnection);
     } else if(err.code<0) {
         self.ntReqPrompt = @"网络连接超时";
-        self.ntReqPhase  = @(NtPhaseConnectionTimeout);
+        self.ntReqPhase  = @(YcNtPhaseConnectionTimeout);
     } else {
         self.ntReqPrompt = err.domain;
-        self.ntReqPhase  = @(NtPhaseResponseFail);
+        self.ntReqPhase  = @(YcNtPhaseResponseFail);
     }
     
 }

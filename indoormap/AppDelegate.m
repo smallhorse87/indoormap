@@ -11,6 +11,7 @@
 #import "ViewController.h"
 
 #import "RTLbsMapManager.h"
+#import "YCDefines.h"
 
 @interface AppDelegate ()<RTLbsVerifyDelegate>
 
@@ -27,7 +28,7 @@
     [self.window makeKeyAndVisible];
 
     RTLbsMapManager *mapManager = [[RTLbsMapManager alloc]init];
-    [mapManager startVerifyLicense:@"j3nTKx4fV6" delegate:self];
+    [mapManager startVerifyLicense:Indoormap_License delegate:self];
     
     return YES;
 }

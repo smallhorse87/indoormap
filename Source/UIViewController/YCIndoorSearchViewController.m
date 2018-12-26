@@ -139,8 +139,6 @@
 {
     WEAKSELF
 
-//    stony debug self.navBar.hidden = YES;
-    
     YCSearchNavBar *searchNavBar = [[YCSearchNavBar alloc] init];
     
     [self.view addSubview:searchNavBar];
@@ -195,24 +193,24 @@
 
 #pragma mark - pop/dismiss UI
 
-- (void)popToast:(NtPhaseType)type title:(NSString*)title
+- (void)popToast:(YcNtPhaseType)type title:(NSString*)title
 {
     switch (type) {
-        case NtPhaseNone:
+        case YcNtPhaseNone:
             [ISWToast dismissToast];
             break;
 
-        case NtPhaseResponseSuc:
+        case YcNtPhaseResponseSuc:
             [ISWToast dismissToast];
             break;
 
-        case NtPhaseConnectionTimeout:
-        case NtPhaseNoConnection:
-        case NtPhaseResponseFail:
+        case YcNtPhaseConnectionTimeout:
+        case YcNtPhaseNoConnection:
+        case YcNtPhaseResponseFail:
             [ISWToast showFailToast:title];
             break;
 
-        case NtPhaseRequesting:
+        case YcNtPhaseRequesting:
             [ISWToast showLoadingToast];
             break;
 

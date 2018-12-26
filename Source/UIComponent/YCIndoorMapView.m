@@ -47,9 +47,9 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
     NSString *targetFloor = @"F1";
 
     self = [super initWithFrame:CGRectMake(0,0, kScreenWidth, kScreenHeight)
-                       building:Bodimall_BuildId
+                       building:Indoormap_BuildId
                           floor:targetFloor
-                      serverUrl:RTLbs_ServerAddress
+                      serverUrl:Indoormap_ServerAddress
                           scale:kScale
                        delegate:self];
     if (self) {
@@ -144,7 +144,7 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
     }
 
     //调整视图
-    [self reloadMapWithBuilding:Bodimall_BuildId
+    [self reloadMapWithBuilding:Indoormap_BuildId
                        andFloor:item[@"floor"]];
     
     [self adjustView];
@@ -169,7 +169,7 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
 
     if([_myLocation.floorID isEqualToString:self.floor]) {
         [self drawMobilePositioningPoint:CGPointMake(_myLocation.location_x, _myLocation.location_y)
-                                AndBuild:Bodimall_BuildId
+                                AndBuild:Indoormap_BuildId
                                 AndFloor:_myLocation.floorID
                        locationImageName:@"YCIndoorMap.bundle/foot_navi_direction_normal"];
     } else {
@@ -216,7 +216,7 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
 
     centerPoint = CGPointMake(_myLocation.location_x, _myLocation.location_y);
 
-    [self reloadMapWithBuilding:Bodimall_BuildId
+    [self reloadMapWithBuilding:Indoormap_BuildId
                        andFloor:_currentAnnotation.annotationFloor];
 
     [self adjustView];
@@ -233,7 +233,7 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
     
     //已移动到位 //stony debug ：出现一个问题，手动滑过了，怎么记录当前中心点？
     if(![self.floor isEqualToString:_myLocation.floorID]) {
-        [self reloadMapWithBuilding:Bodimall_BuildId
+        [self reloadMapWithBuilding:Indoormap_BuildId
                            andFloor:_currentAnnotation.annotationFloor];
 
         if(_floorDidChange) _floorDidChange(_currentAnnotation.annotationFloor);
@@ -259,7 +259,7 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
 
     if(![self.floor isEqualToString:annotation.annotationFloor]) {
         
-        [self reloadMapWithBuilding:Bodimall_BuildId
+        [self reloadMapWithBuilding:Indoormap_BuildId
                            andFloor:annotation.annotationFloor];
         
         if(_floorDidChange) _floorDidChange(annotation.annotationFloor);
@@ -278,11 +278,11 @@ int zoomLevels[11] = {396,314,250,199,158,125,100,79,63,50,40};
         return;
     
     if(centerPoint.x == 0) {
-        [self reloadMapWithBuilding:Bodimall_BuildId
+        [self reloadMapWithBuilding:Indoormap_BuildId
                            andFloor:floor];
         
     } else {
-        [self reloadMapWithBuilding:Bodimall_BuildId
+        [self reloadMapWithBuilding:Indoormap_BuildId
                            andFloor:floor];
         
     }
