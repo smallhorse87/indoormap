@@ -3,7 +3,7 @@ platform:ios, '9.0'
 
 target  'indoormap' do
 
-pod 'Masonry', '~> 1.0.2'
+pod 'Masonry'
 pod 'KVOController'
 pod 'ISWCategory'
 

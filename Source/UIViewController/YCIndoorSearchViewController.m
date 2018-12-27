@@ -30,6 +30,7 @@
 
     NSMutableArray       *cellArr;
     
+    YCSearchNavBar       *searchNavBar;
     UITableView          *tableView;
 }
 
@@ -139,14 +140,21 @@
 {
     WEAKSELF
 
-    YCSearchNavBar *searchNavBar = [[YCSearchNavBar alloc] init];
-    
+    searchNavBar = [[YCSearchNavBar alloc] init];
+
     [self.view addSubview:searchNavBar];
     [searchNavBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(weakSelf.view).offset(12);
         make.trailing.equalTo(weakSelf.view).offset(-12);
 
-        make.top.equalTo(weakSelf.view).offset(29);
+        if (@available(iOS 11.0, *))
+        {
+            make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+        }
+        else
+        {
+            make.top.equalTo(weakSelf.view).offset(29);
+        }
     }];
     
     searchNavBar.backBtnClicked = ^{
@@ -169,7 +177,7 @@
 - (void)buildTableView
 {
     // Do any additional setup after loading the view.
-    tableView = [[UITableView alloc] initWithFrame:CGRectMake(12, 147, kScreenWidth-(12*2), kScreenHeight - 147) style:UITableViewStylePlain];
+    tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     tableView.contentInset        = UIEdgeInsetsMake(0, 0, 20, 0);
     tableView.rowHeight           = 56.0;
     tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
@@ -179,7 +187,15 @@
     [self.view addSubview:tableView];
     tableView.backgroundColor = kColorPageBg;
     self.view.backgroundColor = kColorPageBg;
-    
+
+    [self.view addSubview:tableView];
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.view).offset(12);
+        make.trailing.equalTo(self.view).offset(-12);
+        make.top.equalTo(searchNavBar.mas_bottom).offset(20);
+        make.bottom.equalTo(self.view);
+    }];
+
     if (@available(iOS 11.0, *)) {
         tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     } else {

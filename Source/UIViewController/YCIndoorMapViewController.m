@@ -186,7 +186,15 @@
     [self.view addSubview:_guidingNavBar];
     [_guidingNavBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(weakSelf.view).offset(10);
-        make.top.equalTo(weakSelf.view).offset(20);
+        if (@available(iOS 11.0, *))
+        {
+            make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+        }
+        else
+        {
+            make.top.equalTo(weakSelf.view).offset(20);
+        }
+        
         make.height.width.equalTo(@(44));
     }];
 
@@ -213,6 +221,16 @@
         make.leading.equalTo(weakSelf.view).offset(12);
         make.trailing.equalTo(weakSelf.view).offset(-12);
         make.bottom.equalTo(weakSelf.view).offset(-11);
+        
+        if (@available(iOS 11.0, *))
+        {
+            make.bottom.equalTo(weakSelf.view.mas_safeAreaLayoutGuideBottom).offset(-11);
+        }
+        else
+        {
+            make.bottom.equalTo(weakSelf.view).offset(-11);
+        }
+        
         make.height.equalTo(@(77));
     }];
 
@@ -229,7 +247,14 @@
     [_pinNavBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(weakSelf.view).offset(12);
         make.trailing.equalTo(weakSelf.view).offset(-12);
-        make.top.equalTo(weakSelf.view).offset(20);
+        if (@available(iOS 11.0, *))
+        {
+            make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+        }
+        else
+        {
+            make.top.equalTo(weakSelf.view).offset(20);
+        }
         make.height.equalTo(@(44));
     }];
 
@@ -258,7 +283,14 @@
     [self.view addSubview:_toLocateBtn];
     [_toLocateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.view).offset(12);
-        make.bottom.equalTo(self.view).offset(-130);
+        if (@available(iOS 11.0, *))
+        {
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-130);
+        }
+        else
+        {
+            make.bottom.equalTo(self.view).offset(-130);
+        }
         make.width.height.equalTo(@(42));
     }];
 
@@ -314,7 +346,14 @@
     [_pinBottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(weakSelf.view).offset(12);
         make.trailing.equalTo(weakSelf.view).offset(-12);
-        make.bottom.equalTo(weakSelf.view).offset(-11);
+        if (@available(iOS 11.0, *))
+        {
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-11);
+        }
+        else
+        {
+            make.bottom.equalTo(self.view).offset(-11);
+        }
         make.height.equalTo(@109);
     }];
 
