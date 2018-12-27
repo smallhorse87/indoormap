@@ -174,7 +174,14 @@
         make.width.equalTo(@60);
         make.height.equalTo(@44);
         make.trailing.equalTo(self.view);
-        make.bottom.equalTo(self.view).offset(-90);
+        if (@available(iOS 11.0, *))
+        {
+            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom).offset(-90);
+        }
+        else
+        {
+            make.bottom.equalTo(self.view).offset(-90);
+        }
     }];
 }
 

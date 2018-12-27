@@ -115,6 +115,7 @@
 //        _currentSimulatingLocation.location_y = -78.134500000000003;
         _currentSimulatingLocation.location_x = 170.3909912109375;
         _currentSimulatingLocation.location_y = 173.81600952148438;
+        _location = _currentSimulatingLocation;
         //debug end
         
         [self startLocating];
@@ -142,7 +143,7 @@
 
 - (void)onStartGuidingCmd
 {
-    if(_location != nil)
+    if(self.location != nil)
     {
         [self onRoutePlanReq];
     }
@@ -480,11 +481,10 @@
 //             //[weakSelf ntRequestSuc:@"定位成功。"];
 //
              weakSelf.location = _currentSimulatingLocation;
-
+             NSLog(@"松松：%@", _currentSimulatingLocation);
              if(_guideMode != YCGuideModeRealtimeGuiding)
                  return;
 
-         NSLog(@"松松：%@", [_realtimeGuide retTxtGuide:_location]);
 //
 //         } else {
 //

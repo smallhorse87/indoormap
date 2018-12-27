@@ -192,7 +192,7 @@
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.view).offset(12);
         make.trailing.equalTo(self.view).offset(-12);
-        make.top.equalTo(searchNavBar.mas_bottom).offset(20);
+        make.top.equalTo(searchNavBar.mas_bottom).offset(10);
         make.bottom.equalTo(self.view);
     }];
 
