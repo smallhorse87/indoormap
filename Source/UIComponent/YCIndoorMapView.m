@@ -58,14 +58,8 @@
 }
 
 #pragma mark - map
-- (void) mapViewZoomLevelCriticalStraight:(NSInteger)zoom
-{
-
-}
-
 - (void) mapViewDidTapOnMapPoint:(CGPoint)point poiName:(NSString*)poiName poiID:(NSString*)ID shapType:(NSInteger)type
 {
-    NSLog(@"松：didTapOnMapPoint type:%@",poiName);
     RTLbs3DAnnotation * anno = [[RTLbs3DAnnotation alloc] initWithMapPoint:point
                                                                  annoTitle:poiName
                                                                     annoId:poiName
@@ -77,8 +71,6 @@
 
 - (UIView*)mapViewWithAnnotationPopView:(RTLbs3DAnnotation *)anno
 {
-    NSLog(@"松：mapViewWithAnnotationPopView");
-    
     return nil;
 }
 
@@ -93,8 +85,6 @@
     }
 
     [self drawMyLocationIfNeeded];
-
-    NSLog(@"松：mapViewLoadedSuccess");
 
 }
 
@@ -236,8 +226,6 @@
 
 - (void)drawPinAnnotation:(RTLbs3DAnnotation*)annotation
 {
-    NSLog(@"松：drawPinAnnotation");
-
     if(_currentAnnotation!=nil)
         [self removeAnnotationWith:_currentAnnotation];
 

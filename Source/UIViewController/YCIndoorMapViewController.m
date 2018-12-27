@@ -428,8 +428,6 @@
 
 - (void)popMapLoadToast:(NSString*)txt
 {
-    NSLog(@"松：楼层切换 %@",txt);
-    
     _mapLoadToast.text   = txt;
     _mapLoadToast.hidden = NO;
 
@@ -698,7 +696,6 @@
              RTLbs3DAnnotation *anno = [self buildAnnotationWithPOIWithMsg:info];
              anno.iconImage = [UIImage imageNamed:@"YCIndoorMap.bundle/icon_poi"];
              [weakSelf.viewModel onSearchedPinAnnotationChanged:anno];
-             NSLog(@"松：搜索返回");
          }];
 
 }

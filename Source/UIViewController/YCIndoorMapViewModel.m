@@ -481,7 +481,7 @@
 //             //[weakSelf ntRequestSuc:@"定位成功。"];
 //
              weakSelf.location = _currentSimulatingLocation;
-             NSLog(@"松松：%@", _currentSimulatingLocation);
+
              if(_guideMode != YCGuideModeRealtimeGuiding)
                  return;
 

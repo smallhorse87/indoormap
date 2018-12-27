@@ -37,7 +37,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, readonly) YCGuideMode      guideMode;
 
-@property (nonatomic, readonly) BOOL             flagRealTimeGuidingTriggerred;
+@property (nonatomic, readonly) BOOL               flagRealTimeGuidingTriggerred;
 @property (nonatomic, readonly) RTLbs3DAnnotation  *preEndAnnotation;
 @property (nonatomic, readonly) RTLbs3DAnnotation  *preStartAnnotation;
 

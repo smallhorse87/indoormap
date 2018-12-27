@@ -70,8 +70,6 @@
                       with:CGPointMake(location.location_x , location.location_y)])
             continue;
         
-        NSLog(@"松松 approching detected");
-        
         for(int i=0;i<=[_keyNavigationInfo indexOfObject:item];i++) {
             RTLbs3DNavigationInfo *tmpNode = _keyNavigationInfo[i];
             tmpNode.type_poi = @"REACHED";
