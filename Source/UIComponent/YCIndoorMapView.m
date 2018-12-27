@@ -27,7 +27,7 @@
     IbeaconLocation *_myLocation;
     
     int             zoomLevel;
-    CGPoint         centerPoint;
+
 
 }
 @end
@@ -111,10 +111,7 @@
         return;
     
     NSDictionary *item = navigationInfo[0];
-    CGFloat navPoint_x = [item[@"navPoint_x"] floatValue];
-    CGFloat navPoint_y = [item[@"navPoint_y"] floatValue];
-    centerPoint  = CGPointMake(navPoint_x,navPoint_y);
-    
+
     //移除pin点
     if(_currentAnnotation!=nil) {
         [self removeAnnotationWith:_currentAnnotation];
@@ -164,14 +161,7 @@
     if(_myLocation==nil)
         return;
     
-    if(![self.floor isEqualToString:_myLocation.floorID]) {
-        [self moveToMyLocation];
-
-    } else {
-
-        centerPoint = CGPointMake(_myLocation.location_x, _myLocation.location_y);
-
-    }
+    [self moveToMyLocation];
     
 }
 
@@ -181,14 +171,9 @@
     if(_myLocation==nil)
         return;
 
-    if([self.floor isEqualToString:_myLocation.floorID])
-        return;
-
-    centerPoint = CGPointMake(_myLocation.location_x, _myLocation.location_y);
-
     [self reloadMapWithBuilding:Indoormap_BuildId
-                       andFloor:_currentAnnotation.annotationFloor];
-
+                       andFloor:_myLocation.floorID];
+    
 }
 
 - (void)moveToPinAnnotatin
@@ -196,8 +181,6 @@
     if(_currentAnnotation==nil)
         return;
     
-    centerPoint = _currentAnnotation.location;
-
     if(![self.floor isEqualToString:_myLocation.floorID]) {
         [self reloadMapWithBuilding:Indoormap_BuildId
                            andFloor:_currentAnnotation.annotationFloor];
@@ -216,8 +199,6 @@
     
     [self addAnnotation:annotation isShowPopView:YES setMapCenter:YES];
     
-    centerPoint = annotation.location;
-
     if(![self.floor isEqualToString:annotation.annotationFloor]) {
         
         [self reloadMapWithBuilding:Indoormap_BuildId
@@ -237,24 +218,5 @@
                        andFloor:floor];
 }
 
-#pragma mark - utilities
-
-- (void)adjustView
-{
-
-    if(zoomLevel==0 && centerPoint.x == 0) {
-        return;
-
-    } else if(zoomLevel==0 && centerPoint.x != 0) {
-        [self setMapviewZoomLevel:3 duration:3];
-
-    } else if(zoomLevel!=0 && centerPoint.x == 0) {
-        [self setMapviewZoomLevel:3 duration:3];
-        
-    } else if(zoomLevel!=0 && centerPoint.x != 0) {
-        [self setMapviewZoomLevel:3 duration:3];
-    }
-    
-}
 
 @end
