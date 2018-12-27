@@ -27,8 +27,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) IbeaconLocation  *location;
 @property (nonatomic, readonly) NSString         *locationErrCode;
 
-@property (nonatomic, readonly) NSString         *currentFloor;
-
 @property (nonatomic, readonly) RTLbs3DAnnotation  *pinAnnotation;
 
 @property (nonatomic, readonly) NSArray          *navigationInfo;
@@ -53,8 +51,6 @@ typedef enum : NSUInteger {
 
 //不断更新的信息
 - (void)onFetchContinuousLocReq;
-
-- (void)onSelectedFloorChanged:(NSString*)floor;
 
 - (void)onNextSimualtingLocationReq;
 

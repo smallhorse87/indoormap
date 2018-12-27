@@ -54,7 +54,7 @@
 {
     self.compassPosition   = CGPointMake(33, 96);
     self.navLineWide       = 30;
-    self.navigationMode    = RTLbsRoutePlanningModeNavigation;
+    self.navigationMode    = RTLbsRoutePlanningModeNone;
 }
 
 #pragma mark - map
@@ -86,12 +86,6 @@
 
     [self drawMyLocationIfNeeded];
 
-}
-
-- (void) mapViewInflectionPoint:(RTLbs3DNavigationInfo*)inflection allDistance:(float)distance isEndPoi:(BOOL)endPoi
-{
-    if(_guideDidChange)
-        _guideDidChange([RealtimeGuide formateInstruction:inflection allDistance:distance]);
 }
 
 - (void) mapViewLoadedFailed:(RTLbsMapView*)rtmapView error:(NSString *)errorInfo
@@ -130,10 +124,6 @@
     [self reloadMapWithBuilding:Indoormap_BuildId
                        andFloor:item[@"floor"]];
     
-    [self adjustView];
-    
-    if(_floorDidChange) _floorDidChange(item[@"floor"]);
-
     //绘制新的规划线路
     [self removeAnnotations];
 
@@ -180,8 +170,7 @@
     } else {
 
         centerPoint = CGPointMake(_myLocation.location_x, _myLocation.location_y);
-        
-        [self adjustView];
+
     }
     
 }
@@ -200,9 +189,6 @@
     [self reloadMapWithBuilding:Indoormap_BuildId
                        andFloor:_currentAnnotation.annotationFloor];
 
-    [self adjustView];
-
-    if(_floorDidChange) _floorDidChange(_myLocation.floorID);
 }
 
 - (void)moveToPinAnnotatin
@@ -216,11 +202,8 @@
         [self reloadMapWithBuilding:Indoormap_BuildId
                            andFloor:_currentAnnotation.annotationFloor];
 
-        if(_floorDidChange) _floorDidChange(_currentAnnotation.annotationFloor);
     }
     
-    [self adjustView];
-
 }
 
 
@@ -239,14 +222,9 @@
         
         [self reloadMapWithBuilding:Indoormap_BuildId
                            andFloor:annotation.annotationFloor];
-        
-        if(_floorDidChange) _floorDidChange(annotation.annotationFloor);
 
     }
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self adjustView];
-    });
 
 }
 
@@ -254,18 +232,9 @@
 {
     if([self.floor isEqualToString:floor])
         return;
-    
-    if(centerPoint.x == 0) {
-        [self reloadMapWithBuilding:Indoormap_BuildId
-                           andFloor:floor];
-        
-    } else {
-        [self reloadMapWithBuilding:Indoormap_BuildId
-                           andFloor:floor];
-        
-    }
 
-    [self adjustView];
+    [self reloadMapWithBuilding:Indoormap_BuildId
+                       andFloor:floor];
 }
 
 #pragma mark - utilities

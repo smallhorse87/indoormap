@@ -14,10 +14,6 @@ typedef void(^MapDidLoad)(void);
 
 typedef void(^MapDidTap)(RTLbs3DAnnotation*);
 
-typedef void(^GuideDidChange)(NSString*);
-
-typedef void(^FloorDidChange)(NSString*);
-
 @interface YCIndoorMapView : RTLbsMapView
 
 - (void)reload:(NSString*)floor;
@@ -39,9 +35,5 @@ typedef void(^FloorDidChange)(NSString*);
 @property (nonatomic,strong) MapDidLoad     mapDidLoadFail;
 
 @property (nonatomic,strong) MapDidTap      mapDidTap;
-
-@property (nonatomic,strong) FloorDidChange floorDidChange;
-
-@property (nonatomic,strong) GuideDidChange guideDidChange;
 
 @end

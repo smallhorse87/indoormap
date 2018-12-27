@@ -116,7 +116,6 @@
                        keyPaths:@[@"ntReqPhase",
                                   @"floorArr",
                                   @"retInitedPoiMsg",
-                                  @"currentFloor",
                                   @"location",
                                   @"pinAnnotation",
                                   @"guideMode",
@@ -140,9 +139,6 @@
          } else if ([key isEqualToString:@"retInitedPoiMsg"]) {
              [weakSelf retInitedPoiMsgValueUpdated];
 
-         } else if ([key isEqualToString:@"currentFloor"]) {
-             [weakSelf currentFloorValueUpdated];
-             
          } else if ([key isEqualToString:@"pinAnnotation"]) {
              [weakSelf pinAnnotationValueUpdated];
 
@@ -638,11 +634,6 @@
     
 }
 
-- (void)guideDidChange:(NSString*)guideInstruct
-{
-
-}
-
 - (void)mapDidTap:(RTLbs3DAnnotation*)tappedAnnotation
 {
     tappedAnnotation.iconImage = [UIImage imageNamed:@"YCIndoorMap.bundle/icon_poi"];
@@ -654,6 +645,10 @@
     [_viewModel onInitSearchReq];
 
     [self popMapLoadToast:_mapView.floor];
+    
+    [_floorPickView changeToFloor:_mapView.floor];
+
+    _floorIndicator.text = _mapView.floor;
 }
 
 - (void)mapDidLoadFail
@@ -661,14 +656,10 @@
     [self popMapLoadToast:@"地图加载失败"];
 }
 
-- (void)mapFloorDidChange:(NSString*)floor
-{
-    [_viewModel onSelectedFloorChanged:floor];
-}
-
 - (void)pickerFloorDidChange:(NSString*)floor
 {
-    [_viewModel onSelectedFloorChanged:floor];
+    [_mapView reload:floor];
+    _floorIndicator.text = floor;
 }
 
 - (void)confirmToRealtimeGuideBtnPressed
@@ -753,6 +744,8 @@
                                floor:_viewModel.pinAnnotation.annotationFloor];
         
         [_mapView drawPinAnnotation:_viewModel.pinAnnotation];
+
+        [_floorPickView changeToFloor:_viewModel.pinAnnotation.annotationFloor];
     }
     else
     {
@@ -760,15 +753,6 @@
         [_mapView cleanAll];
     }
 
-}
-
-- (void)currentFloorValueUpdated
-{
-    [_mapView reload:_viewModel.currentFloor];
-
-    [_floorPickView changeToFloor:_viewModel.currentFloor];
-
-    _floorIndicator.text = _viewModel.currentFloor;
 }
 
 - (void)retInitedPoiMsgValueUpdated
@@ -805,7 +789,7 @@
 - (void)floorArrValueUpdated
 {
     [_floorPickView setupContent:_viewModel.floorArr
-                    defaultFloor:_viewModel.currentFloor];
+                    defaultFloor:@"F1"];
 }
 
 - (void)blueToothEnabledValueUpdated
@@ -822,16 +806,7 @@
 
 - (void)navToComment
 {
-//stony debug
-//    NSMutableArray  *stackVc = [[NSMutableArray alloc]initWithArray:self.navigationController.viewControllers];
-//    [stackVc removeLastObject];
-//
-//    CompositionOnMapViewController *vc  =
-//    [[CompositionOnMapViewController alloc] initWithStartLoc:_viewModel.preStartAnnotation
-//                                                   andEndLoc:_viewModel.preEndAnnotation];
-//    [stackVc addObject:vc];
-//
-//    [self.navigationController setViewControllers:stackVc animated:YES];
+
 }
 
 - (void)navBack
@@ -867,15 +842,7 @@
 
         _mapView.mapDidTap = ^(RTLbs3DAnnotation *anno) {
             [weakSelf mapDidTap:anno];
-        };
-        
-        _mapView.floorDidChange = ^(NSString *floor) {
-            [weakSelf mapFloorDidChange:floor];
-        };
-        
-        _mapView.guideDidChange = ^(NSString *txt) {
-            [weakSelf guideDidChange:txt];
-        };
+        };        
     }
 
     return _mapView;

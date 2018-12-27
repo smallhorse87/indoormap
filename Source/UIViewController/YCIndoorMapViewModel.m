@@ -55,8 +55,6 @@
 @property (nonatomic, strong) IbeaconLocation *location;
 @property (nonatomic, strong) NSString         *locationErrCode;
 
-@property (nonatomic, strong) NSString    *currentFloor;
-
 @property (nonatomic, strong) RTLbs3DAnnotation  *pinAnnotation;
 
 @property (nonatomic, strong) RTLbs3DPOIMessageClass *retInitedPoiMsg;
@@ -95,11 +93,6 @@
         _initedKeyword  = keyword;
         _initedFloor    = floor;
         
-        if(isEmptyString(floor))
-            _currentFloor   = @"F1";
-        else
-            _currentFloor   = floor;
-        
         _mapView        = map;
 
         _guideMode      = YCGuideModeInit;
@@ -123,12 +116,6 @@
 
     }
     return self;
-}
-
-
-- (void)onSelectedFloorChanged:(NSString*)floor
-{
-    self.currentFloor = floor;
 }
 
 - (void)onSearchedPinAnnotationChanged:(RTLbs3DAnnotation*)searchedPoint

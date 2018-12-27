@@ -225,15 +225,9 @@
 {
     NSInteger floorIdx = [self currentSelectedFloorIdx];
     
-    if(floorIdx<0) return;
-    
     if(floorIdx-1<0) return;
     
-    NSString *toFloor = _floorArr[floorIdx-1];
-    
-    NSLog(@"toFloor : %@",toFloor);
-    
-    if(_floorPickerClicked) _floorPickerClicked(toFloor);
+    [self floorCellClickedAt:floorIdx-1];
 }
 
 - (void)downBtnPressed
@@ -244,11 +238,7 @@
     
     if(floorIdx+1>_floorArr.count) return;
     
-    NSString *toFloor = _floorArr[floorIdx+1];
-    
-    NSLog(@"toFloor : %@",toFloor);
-    
-    if(_floorPickerClicked) _floorPickerClicked(toFloor);
+    [self floorCellClickedAt:floorIdx+1];
 }
 
 - (void)floorCellClickedAt:(NSInteger)idx
@@ -298,20 +288,29 @@
     
     self.hidden = NO;
     
+    NSLog(@"松 setupContent");
+    
     [self constructTable:floorArr];
     [_floorTable reloadData];
 
     [self setupSelectedFloor:defaultFloor];
-    [self scrollToIdx:[self currentSelectedFloorIdx]];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self scrollToIdx:[self currentSelectedFloorIdx]];
+    });
+
 }
 
 - (void)locateToFloor:(NSString*)toFloor
 {
+    NSLog(@"松 locateToFloor");
     [self setupLocatedFloor:toFloor];
 }
 
 - (void)changeToFloor:(NSString*)toFloor
 {
+    NSLog(@"松 changeToFloor");
+
     [self setupSelectedFloor:toFloor];
     
     [self scrollToIdx:[self currentSelectedFloorIdx]];
