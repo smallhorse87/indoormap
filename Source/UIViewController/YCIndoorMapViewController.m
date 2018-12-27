@@ -591,10 +591,7 @@
 
 - (void)guideDidChange:(NSString*)guideInstruct
 {
-    if(_viewModel.guideMode!=YCGuideModeRealtimeGuiding)
-        return;
 
-    [_guidingBottomView updateContent:guideInstruct];
 }
 
 - (void)mapDidTap:(RTLbs3DAnnotation*)tappedAnnotation
@@ -672,6 +669,10 @@
 
 - (void)navigationInstructValueUpdated
 {
+    if(_viewModel.guideMode!=YCGuideModeRealtimeGuiding)
+        return;
+
+    [_guidingBottomView updateContent:_viewModel.navigationInstruct];
 
 }
 

@@ -71,20 +71,6 @@
     }];
     _roughPromptLable.text = @"路径规划成功";
     
-    UIButton *voiceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [voiceBtn setImage:[UIImage imageNamed:@"YCIndoorMap.bundle/icon_voice_open"] forState:UIControlStateNormal];
-    [voiceBtn isw_addClickAction:@selector(voiceBtnPressed) target:self];
-    [self addSubview:voiceBtn];
-    [voiceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.width.equalTo(@34);
-        make.left.equalTo(_detailedPromptLabel.mas_right).offset(-7);
-        make.centerY.equalTo(_detailedPromptLabel);
-    }];
-}
-
-- (void)voiceBtnPressed
-{
-
 }
 
 - (void)updateContent:(NSString*)content

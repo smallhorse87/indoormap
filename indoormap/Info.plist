@@ -43,6 +43,8 @@
     <string>获取当前位置</string>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string>获取当前位置</string>
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>是否允许使用蓝牙</string>
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowsArbitraryLoads</key>
