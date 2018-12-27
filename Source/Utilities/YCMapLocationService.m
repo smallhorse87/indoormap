@@ -66,7 +66,6 @@
     NSString  *errMsg = @"定位失败";
     NSInteger errCode = 1;
 
-    //stony bug : 数据类型不一致
     if([[result objectForKey:@"bluetoothState"] integerValue] == 0) {
         errMsg  = @"蓝牙未打开";
         errCode = 2;

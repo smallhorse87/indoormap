@@ -30,7 +30,6 @@
 #import "RTLbs3DPOIMessageClass.h"
 
 #import "YCIndoorSearchViewController.h"
-//stony debug #import "CompositionOnMapViewController.h"
 
 #import "Masonry.h"
 
@@ -464,14 +463,28 @@
 - (void)popCommentAlert
 {
     //提示进行评论
-    WEAKSELF
-    //stony debug
-//    [JXTAlertTools showAlertWith:[JXTAlertTools activityViewController] title:@"谈谈您对广场导航的评价"
-//                         message:@"您的反馈对我们改进产品帮助很大。"
-//                   callbackBlock:^(NSInteger btnIndex){[weakSelf commentBtnPressed:btnIndex];}
-//               cancelButtonTitle:@"去评价"
-//          destructiveButtonTitle:@"下次再说"
-//               otherButtonTitles:nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"谈谈您对广场导航的评价"
+                                                                             message:@"您的反馈对我们改进产品帮助很大。"
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"去评价"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction *action)
+    {
+        [self commentBtnPressed];
+    }];
+    [alertController addAction:cancelAction];
+    
+    UIAlertAction *confirmActions = [UIAlertAction actionWithTitle:@"下次再说"
+                                                             style:UIAlertActionStyleDestructive
+                                                           handler:^(UIAlertAction *action)
+    {
+        [self navBack];
+    }];
+    [alertController addAction:confirmActions];
+
+    [self presentViewController:alertController animated:YES completion:nil];
+
 }
 
 - (void)popToast:(YcNtPhaseType)type title:(NSString*)title
@@ -503,20 +516,23 @@
 - (void)popInDifferentBuildingAlert
 {
     WEAKSELF
-//stony debug 
-//    [JXTAlertTools showAlertWith:[JXTAlertTools activityViewController]
-//                           title:@"提示"
-//                         message:@"当经过3楼露天平台时，信号将会会暂时丢失，进入馆内自动重新定位。"
-//                   callbackBlock:^(NSInteger btnIndex)
-//                   {
-//                       if (btnIndex == 1) {
-//                           [weakSelf confirmToRealtimeGuideBtnPressed];
-//                       }
-//                   }
-//               cancelButtonTitle:@"取消"
-//          destructiveButtonTitle:nil
-//               otherButtonTitles:@"确定",
-//     nil];
+
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"当经过3楼露天平台时，信号将会会暂时丢失，进入馆内自动重新定位。" preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:nil];
+    [alertController addAction:cancelAction];
+
+    UIAlertAction *confirmActions = [UIAlertAction actionWithTitle:@"确定"
+                                                             style:UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction *action)
+    {
+        [weakSelf confirmToRealtimeGuideBtnPressed];
+    }];
+    [alertController addAction:confirmActions];
+
+    [self presentViewController:alertController animated:YES completion:nil];
 
 }
 
@@ -584,22 +600,10 @@
 
 #pragma mark - ui event
 
-- (void)commentBtnPressed:(NSInteger)idx
+- (void)commentBtnPressed
 {
-    NSLog(@"bntIdx：%ld",idx);
-    
-    switch (idx) {
-        case 0://去评价
-            [self navToComment];
-            break;
-            
-        case 1://下次再说
-            [self navBack];
-            break;
-            
-        default:
-            break;
-    }
+    [self navToComment];
+    [IndoorMapContext setMapCommented];
 }
 
 - (void)testTrackingBtnPressed
@@ -627,6 +631,7 @@
 
 - (void)navBackBtnPressed
 {
+
     if([self pendingForComment]){
         [self popCommentAlert];
     } else {
@@ -642,7 +647,7 @@
 
 - (void)mapDidTap:(RTLbs3DAnnotation*)tappedAnnotation
 {
-    tappedAnnotation.iconImage = [UIImage imageNamed:[self pinIcon:tappedAnnotation.annoTitle]];
+    tappedAnnotation.iconImage = [UIImage imageNamed:@"YCIndoorMap.bundle/icon_poi"];
     [_viewModel onTappedPointChanged:tappedAnnotation];
 }
 
@@ -691,7 +696,7 @@
          ^(RTLbs3DPOIMessageClass *info)
          {
              RTLbs3DAnnotation *anno = [self buildAnnotationWithPOIWithMsg:info];
-             anno.iconImage = [UIImage imageNamed:[self pinIcon:anno.annoTitle]];
+             anno.iconImage = [UIImage imageNamed:@"YCIndoorMap.bundle/icon_poi"];
              [weakSelf.viewModel onSearchedPinAnnotationChanged:anno];
              NSLog(@"松：搜索返回");
          }];
@@ -772,7 +777,7 @@
 - (void)retInitedPoiMsgValueUpdated
 {
     RTLbs3DAnnotation *anno = [self buildAnnotationWithPOIWithMsg:_viewModel.retInitedPoiMsg];
-    anno.iconImage = [UIImage imageNamed:[self pinIcon:anno.annoTitle]];
+    anno.iconImage = [UIImage imageNamed:@"YCIndoorMap.bundle/icon_poi"];
 
     [_viewModel onSearchedPinAnnotationChanged:anno];
 }
@@ -916,43 +921,6 @@
     return anno;
 }
 
-- (NSString*)pinIcon:(NSString*)poiName
-{
-    NSString *imgName = @"icon_poi";
-
-    NSDictionary *quickPOIPinIconDic = @{
-                                         @"卫生间":@"icon_wc_selected",
-                                         @"电梯":@"icon_elevator_selected",
-                                         @"自动扶梯":@"icon_escalator_selected",
-                                         @"楼梯":@"icon_stairs_selected",
-                                         @"出入口":@"icon_export_selected",
-                                         @"服务台":@"icon_consulting_selected",
-                                         };
-
-    for(NSString *key in quickPOIPinIconDic) {
-        if([key isEqualToString:poiName]) {
-            imgName = [quickPOIPinIconDic objectForKey:key];
-            break;
-        }
-    }
-
-    return [@"YCIndoorMap.bundle/" stringByAppendingString:imgName];
-}
-
-- (NSString*)quickPoiIcon:(NSString*)poiName
-{
-    NSDictionary *quickPOIIconDic = @{
-                                      @"卫生间":@"map_maletoilet",
-                                      @"电梯":@"map_elevator",
-                                      @"自动扶梯":@"map_escalator",
-                                      @"楼梯":@"map_stairs",
-                                      @"出入口":@"map_entrance",
-                                      @"服务台":@"map_help",
-                                      };
-
-    return [quickPOIIconDic objectForKey:poiName];
-}
-
 - (BOOL)pendingForComment
 {
     //没有记录到一个完整的导航
@@ -962,6 +930,9 @@
     if([IndoorMapContext getMapCommented])
         return NO;
     
+    if(_commentVC == nil)
+        return NO;
+
     return YES;
 }
 

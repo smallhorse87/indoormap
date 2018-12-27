@@ -12,4 +12,6 @@
 
 - (instancetype)initWithKeyword:(NSString*)keyword floor:(NSString*)floor;
 
+@property (nonatomic, strong)UIViewController *commentVC;
+
 @end
