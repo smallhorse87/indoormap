@@ -201,7 +201,7 @@
     IndoorMapBaseCell *clickedCell = _cellArr[indexPath.row];
 
     if(clickedCell.clickecBlock!=nil) {
-        clickedCell.clickecBlock(clickedCell);
+        clickedCell.clickecBlock();
     }
     
 }
@@ -229,7 +229,7 @@
 
         [routeCell setupContent:poiInfo[0] floor:poiInfo[1]];
 
-        routeCell.clickecBlock = ^(UITableViewCell *cell) {
+        routeCell.clickecBlock = ^() {
             weakSelf.hidden = YES;
             if(weakSelf.inputCompleted) _inputCompleted(catPoi);
         };

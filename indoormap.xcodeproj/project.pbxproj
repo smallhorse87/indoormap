@@ -26,7 +26,6 @@
 		8151F51421D30AEA00A5089C /* RTLbsLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F4F221D30AEA00A5089C /* RTLbsLocation.a */; };
 		8151F51521D30AEA00A5089C /* lib3DMapView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F4F721D30AEA00A5089C /* lib3DMapView.a */; };
 		8151F51621D30AEA00A5089C /* RtmapRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8151F4FF21D30AEA00A5089C /* RtmapRes.bundle */; };
-		8151F51C21D30CCE00A5089C /* IndoorMapBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8151F51B21D30CCE00A5089C /* IndoorMapBaseCell.m */; };
 		8151F51E21D3136300A5089C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F51D21D3136300A5089C /* libsqlite3.tbd */; };
 		8151F52021D3143E00A5089C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F51F21D3143E00A5089C /* SystemConfiguration.framework */; };
 		8151F52221D3144800A5089C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8151F52121D3144800A5089C /* CoreLocation.framework */; };
@@ -47,6 +46,7 @@
 		81A60EB421D46A7A00D9BE0C /* RealtimeGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A60EB121D46A7A00D9BE0C /* RealtimeGuide.m */; };
 		81A60EB521D46A7A00D9BE0C /* RtmapApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A60EB221D46A7A00D9BE0C /* RtmapApi.m */; };
 		81A60EB621D46A7A00D9BE0C /* YCMapLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A60EB321D46A7A00D9BE0C /* YCMapLocationService.m */; };
+		81A60EB921D4A1F400D9BE0C /* IndoorMapBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A60EB721D4A1F400D9BE0C /* IndoorMapBaseCell.m */; };
 		9C6645B1939BA36418FF4D3D /* libPods-indoormap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 559451933D7A8F28AC9173C8 /* libPods-indoormap.a */; };
 /* End PBXBuildFile section */
 
@@ -101,8 +101,6 @@
 		8151F4FE21D30AEA00A5089C /* RTLbsMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLbsMapView.h; sourceTree = "<group>"; };
 		8151F4FF21D30AEA00A5089C /* RtmapRes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RtmapRes.bundle; sourceTree = "<group>"; };
 		8151F51921D30B6B00A5089C /* IndoorMapDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndoorMapDefines.h; sourceTree = "<group>"; };
-		8151F51A21D30CCE00A5089C /* IndoorMapBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndoorMapBaseCell.h; sourceTree = "<group>"; };
-		8151F51B21D30CCE00A5089C /* IndoorMapBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndoorMapBaseCell.m; sourceTree = "<group>"; };
 		8151F51D21D3136300A5089C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8151F51F21D3143E00A5089C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8151F52121D3144800A5089C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -130,6 +128,8 @@
 		81A60EB121D46A7A00D9BE0C /* RealtimeGuide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealtimeGuide.m; sourceTree = "<group>"; };
 		81A60EB221D46A7A00D9BE0C /* RtmapApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RtmapApi.m; sourceTree = "<group>"; };
 		81A60EB321D46A7A00D9BE0C /* YCMapLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCMapLocationService.m; sourceTree = "<group>"; };
+		81A60EB721D4A1F400D9BE0C /* IndoorMapBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndoorMapBaseCell.m; sourceTree = "<group>"; };
+		81A60EB821D4A1F400D9BE0C /* IndoorMapBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndoorMapBaseCell.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +186,8 @@
 		8151F4CC21D30AEA00A5089C /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				81A60EB721D4A1F400D9BE0C /* IndoorMapBaseCell.m */,
+				81A60EB821D4A1F400D9BE0C /* IndoorMapBaseCell.h */,
 				8151F4CF21D30AEA00A5089C /* YCFavoriteListView.h */,
 				8151F4D021D30AEA00A5089C /* YCFavoriteListView.m */,
 				8151F4D121D30AEA00A5089C /* YCFloorPicker.h */,
@@ -264,8 +266,6 @@
 				81A60EB221D46A7A00D9BE0C /* RtmapApi.m */,
 				81A60EAF21D46A7A00D9BE0C /* YCMapLocationService.h */,
 				81A60EB321D46A7A00D9BE0C /* YCMapLocationService.m */,
-				8151F51A21D30CCE00A5089C /* IndoorMapBaseCell.h */,
-				8151F51B21D30CCE00A5089C /* IndoorMapBaseCell.m */,
 				8151F51921D30B6B00A5089C /* IndoorMapDefines.h */,
 				8107F07421D3702E009E194F /* IndoorMapContext.h */,
 				8107F07521D3702E009E194F /* IndoorMapContext.m */,
@@ -453,10 +453,10 @@
 				81A60EB521D46A7A00D9BE0C /* RtmapApi.m in Sources */,
 				8151F50921D30AEA00A5089C /* YCIndoorMapView.m in Sources */,
 				8151F51221D30AEA00A5089C /* YCIndoorSearchViewController.m in Sources */,
+				81A60EB921D4A1F400D9BE0C /* IndoorMapBaseCell.m in Sources */,
 				818ACF5A21D3007800138683 /* AppDelegate.m in Sources */,
 				8151F50521D30AEA00A5089C /* YCFloorPicker.m in Sources */,
 				8151F51321D30AEA00A5089C /* YCIndoorSearchViewModel.m in Sources */,
-				8151F51C21D30CCE00A5089C /* IndoorMapBaseCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

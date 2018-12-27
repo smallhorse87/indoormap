@@ -373,7 +373,7 @@
 
         [cell setupContent:poiMc.POI_Name floor:poiMc.POI_Floor icon:@"icon_search_local_1"];
         
-        cell.clickecBlock = ^(UITableViewCell *cell) {
+        cell.clickecBlock = ^() {
             [weakSelf searchRltPressed:poiMc];
         };
         
@@ -398,7 +398,7 @@
         YCMapSearchCell  *cell  = [[YCMapSearchCell alloc] init];
         [cell setupContent:sepHisPoi[0] floor:sepHisPoi[1] icon:@"icon_record"];
 
-        cell.clickecBlock = ^(UITableViewCell *cell) {
+        cell.clickecBlock = ^() {
             [weakSelf specificPOIPressed:sepHisPoi[0] floor:sepHisPoi[1]];
         };
 
@@ -422,7 +422,7 @@
     IndoorMapBaseCell *clickedCell = cellArr[indexPath.row];
     
     if(clickedCell.clickecBlock!=nil) {
-        clickedCell.clickecBlock(clickedCell);
+        clickedCell.clickecBlock();
     }
 
 }
