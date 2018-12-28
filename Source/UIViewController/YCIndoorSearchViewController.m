@@ -14,7 +14,7 @@
 #import "ISWCategory.h"
 #import "ISWToast.h"
 
-#import <Masonry.h>
+#import <Masonry/Masonry.h>
 
 #import "RTLbsMapView.h"
 #import "RTLbs3DWebService.h"

@@ -11,7 +11,7 @@
 #import "RTLbs3DAnnotation.h"
 #import "RTMapLocationManager.h"
 
-#import <Masonry.h>
+#import <Masonry/Masonry.h>
 #import "ISWCategory.h"
 
 #import "IndoorMapDefines.h"

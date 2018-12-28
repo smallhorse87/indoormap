@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-#import <Masonry.h>
+#import <Masonry/Masonry.h>
 #import "ISWCategory.h"
 #import "YCIndoorMapViewController.h"
 

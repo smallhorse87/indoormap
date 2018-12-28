@@ -10,7 +10,7 @@
 
 #import "ISWCategory.h"
 
-#import <Masonry.h>
+#import <Masonry/Masonry.h>
 
 #import "IndoorMapDefines.h"
 

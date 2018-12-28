@@ -8,7 +8,7 @@
 
 #import "YCGuidingNavBar.h"
 
-#import <Masonry.h>
+#import <Masonry/Masonry.h>
 
 @implementation YCGuidingNavBar
 

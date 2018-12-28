@@ -8,7 +8,7 @@
 
 #import "YCIndoorMapPrompt.h"
 
-#import <Masonry.h>
+#import <Masonry/Masonry.h>
 
 #import "ISWCategory.h"
 
