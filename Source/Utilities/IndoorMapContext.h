@@ -26,6 +26,11 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)cacheFloorList:(NSString*)buildId floorArr:(NSArray*)floorArr;
 +(NSArray*)retriveFloorList:(NSString*)buildId;
 
+//读取室内地图配置
++(void)startVerifyLicense:(NSString*)key buildingId:(NSString*)buildingId;
++ (NSString*)getLicense;
++ (NSString*)getBuildingId;
+
 @end
 
 NS_ASSUME_NONNULL_END

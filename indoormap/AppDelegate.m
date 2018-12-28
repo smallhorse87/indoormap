@@ -10,10 +10,9 @@
 
 #import "ViewController.h"
 
-#import "RTLbsMapManager.h"
-#import "IndoorMapDefines.h"
+#import "IndoorMapContext.h"
 
-@interface AppDelegate ()<RTLbsVerifyDelegate>
+@interface AppDelegate ()
 
 @end
 
@@ -27,8 +26,11 @@
     self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:vc];
     [self.window makeKeyAndVisible];
 
-    RTLbsMapManager *mapManager = [[RTLbsMapManager alloc]init];
-    [mapManager startVerifyLicense:Indoormap_License delegate:self];
+    //影秀城
+    //[IndoorMapContext startVerifyLicense:@"j3nTKx4fV6" buildingId:@"862700020040300001"];
+
+    //来福士
+    [IndoorMapContext startVerifyLicense:@"j3nTKx4fV6" buildingId:@"862700010030300032"];
     
     return YES;
 }

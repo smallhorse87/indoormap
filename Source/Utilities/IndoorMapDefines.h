@@ -51,12 +51,7 @@ typedef void(^InputCompleted)  (NSString *str);
 
 #define WEAKSELF   typeof(self) __weak weakSelf = self;
 
-//这个是影秀城
-//#define Indoormap_BuildId    @"862700020040300001"
-//这个是来福士
-#define Indoormap_BuildId       @"862700010030300032"
 #define Indoormap_ServerAddress @"http://lbsapi.rtmap.com"
-#define Indoormap_License       @"j3nTKx4fV6"
 
 typedef enum : NSUInteger {
     YcNtPhaseNone,

@@ -8,11 +8,35 @@
 
 #import "IndoorMapContext.h"
 
+#import "RTLbsMapManager.h"
+
 #define kMapCommented       @"mapCommented"
 #define kIndoorSearchHist   @"IndoorSearchHist"
 #define kIndoorFloorList    @"IndoorFloorList"
 
+static NSString *indoormapLicense    = nil;
+static NSString *indoormapBuildingId = nil;
+
 @implementation IndoorMapContext
+
++(void)startVerifyLicense:(NSString*)key buildingId:(NSString*)buildingId
+{
+    RTLbsMapManager *mapManager = [[RTLbsMapManager alloc]init];
+    [mapManager startVerifyLicense:key delegate:nil];
+
+    indoormapLicense    = key;
+    indoormapBuildingId = buildingId;
+}
+
++ (NSString*)getLicense
+{
+    return indoormapLicense;
+}
+
++ (NSString*)getBuildingId
+{
+    return indoormapBuildingId;
+}
 
 +(NSMutableDictionary*)readValue
 {

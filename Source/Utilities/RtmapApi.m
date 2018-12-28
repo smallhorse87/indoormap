@@ -13,6 +13,7 @@
 #import "RTLbsMapManager.h"
 
 #import "IndoorMapDefines.h"
+#import "IndoorMapContext.h"
 
 RTLbs3DWebService *webService;
 
@@ -65,7 +66,7 @@ RTLbs3DWebService *webService;
     floorinfosSucBlock = sucBlock;
     floorinfosFailBloc = failBlock;
 
-    BOOL isSuccess = [webService getBuildFloorInfo:Indoormap_BuildId];
+    BOOL isSuccess = [webService getBuildFloorInfo:[IndoorMapContext getBuildingId]];
     if (isSuccess)
     {
         NSLog(@"获取建筑物楼层发送成功");

@@ -15,6 +15,7 @@
 #import "ISWCategory.h"
 
 #import "IndoorMapDefines.h"
+#import "IndoorMapContext.h"
 
 #define kScale 30
 
@@ -36,7 +37,7 @@
     NSString *targetFloor = @"F1";
 
     self = [super initWithFrame:CGRectMake(0,0, kScreenWidth, kScreenHeight)
-                       building:Indoormap_BuildId
+                       building:[IndoorMapContext getBuildingId]
                           floor:targetFloor
                       serverUrl:Indoormap_ServerAddress
                           scale:kScale
@@ -111,7 +112,7 @@
     if([self.floor isEqualToString:floor])
         return;
     
-    [self reloadMapWithBuilding:Indoormap_BuildId
+    [self reloadMapWithBuilding:[IndoorMapContext getBuildingId]
                        andFloor:floor];
     
 }
@@ -125,7 +126,7 @@
     
     if([_myLocation.floorID isEqualToString:self.floor]) {
         [self drawMobilePositioningPoint:CGPointMake(_myLocation.location_x, _myLocation.location_y)
-                                AndBuild:Indoormap_BuildId
+                                AndBuild:[IndoorMapContext getBuildingId]
                                 AndFloor:_myLocation.floorID
                        locationImageName:@"YCIndoorMap.bundle/foot_navi_direction_normal"];
     } else {
@@ -147,7 +148,7 @@
 
     _perferCenter = CGPointMake(_myLocation.location_x, _myLocation.location_y);
 
-    [self reloadMapWithBuilding:Indoormap_BuildId
+    [self reloadMapWithBuilding:[IndoorMapContext getBuildingId]
                        andFloor:_myLocation.floorID];
 
     
@@ -163,7 +164,7 @@
     
     if(![self.floor isEqualToString:annotation.annotationFloor]) {
         
-        [self reloadMapWithBuilding:Indoormap_BuildId
+        [self reloadMapWithBuilding:[IndoorMapContext getBuildingId]
                            andFloor:annotation.annotationFloor];
         
     } else {
@@ -181,7 +182,7 @@
         
         _perferCenter = _currentAnnotation.location;
 
-        [self reloadMapWithBuilding:Indoormap_BuildId
+        [self reloadMapWithBuilding:[IndoorMapContext getBuildingId]
                            andFloor:_currentAnnotation.annotationFloor];
         
     } else {
@@ -211,7 +212,7 @@
     [self removeAnnotations];
 
     //调整视图
-    [self reloadMapWithBuilding:Indoormap_BuildId
+    [self reloadMapWithBuilding:[IndoorMapContext getBuildingId]
                        andFloor:item[@"floor"]];
     
     //绘制新的规划线路

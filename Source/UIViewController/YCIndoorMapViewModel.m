@@ -180,7 +180,7 @@
     _myapi = [[RtmapApi alloc]init];
 
     [_myapi requestPOIsWithkeyword:_initedKeyword
-                           buildId:Indoormap_BuildId
+                           buildId:[IndoorMapContext getBuildingId]
                              floor:_initedFloor
     sucBlock:^(NSArray *poiArr)
     {
@@ -222,7 +222,7 @@
 
 - (void)onFloorInfosReq
 {
-    NSArray *floorArr = [IndoorMapContext retriveFloorList:Indoormap_BuildId];
+    NSArray *floorArr = [IndoorMapContext retriveFloorList:[IndoorMapContext getBuildingId]];
     
     if(floorArr.count!=0) {
         self.floorArr = floorArr;
@@ -246,7 +246,7 @@
         weakSelf.floorArr = floorArr;
         floorsApi = nil;
 
-        [IndoorMapContext cacheFloorList:Indoormap_BuildId floorArr:floorArr];
+        [IndoorMapContext cacheFloorList:[IndoorMapContext getBuildingId] floorArr:floorArr];
 
     } fail:^(NSString *error) {
         floorsApi = nil;
@@ -282,12 +282,12 @@
     RTLbs3DAnnotation* myLocationAnnotation = [self locationToAnnotation:_location];
 
     [_mapView mapViewNavgationStartPoint:myLocationAnnotation.location
-                              buildingID:Indoormap_BuildId
+                              buildingID:[IndoorMapContext getBuildingId]
                                  floorID:[myLocationAnnotation.annotationFloor uppercaseString]
                                 delegate:self];
     
     [_mapView mapViewNavgationEndPoint:_pinAnnotation.location
-                            buildingID:Indoormap_BuildId
+                            buildingID:[IndoorMapContext getBuildingId]
                                floorID:[_pinAnnotation.annotationFloor uppercaseString]
                               delegate:self];
     

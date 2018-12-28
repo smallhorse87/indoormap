@@ -16,7 +16,6 @@
 #import "ISWCategory.h"
 
 #import "IndoorMapDefines.h"
-
 #import "IndoorMapContext.h"
 
 @interface YCIndoorSearchViewModel() <RTLbs3DWebServiceDelegate>
@@ -84,7 +83,7 @@
     webService.delegate = self;
     webService.serverUrl = Indoormap_ServerAddress;
     BOOL isSuccess =  [webService getKeywordSearch:_keyword
-                                           buildID:Indoormap_BuildId
+                                           buildID:[IndoorMapContext getBuildingId]
                                              Floor:nil];
     
     if (isSuccess)
@@ -109,7 +108,7 @@
     poiapi = [[RtmapApi alloc]init];
 
     [poiapi requestPOIsWithkeyword:name
-                           buildId:Indoormap_BuildId
+                           buildId:[IndoorMapContext getBuildingId]
                              floor:floor
                           sucBlock:^(NSArray * poiArr)
      {
