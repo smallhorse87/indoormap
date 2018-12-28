@@ -74,8 +74,6 @@
         });
     }
 
-    [self drawMyLocationIfNeeded];
-
 }
 
 - (void) mapViewLoadedFailed:(RTLbsMapView*)rtmapView error:(NSString *)errorInfo
@@ -112,9 +110,19 @@
 
 - (void)drawMyLocation:(IbeaconLocation*)location
 {
+    if(location==nil)
+        return;
+    
     _myLocation = location;
     
-    [self drawMyLocationIfNeeded];
+    if([_myLocation.floorID isEqualToString:self.floor]) {
+        [self drawMobilePositioningPoint:CGPointMake(_myLocation.location_x, _myLocation.location_y)
+                                AndBuild:Indoormap_BuildId
+                                AndFloor:_myLocation.floorID
+                       locationImageName:@"YCIndoorMap.bundle/foot_navi_direction_normal"];
+    } else {
+        [self removeMapViewLocationPoint];;
+    }
 }
 
 - (void)moveToMyLocation
@@ -123,8 +131,24 @@
     if(_myLocation==nil)
         return;
     
+    if([_myLocation.floorID isEqualToString:self.floor]) {
+        [self mapViewPointMoveToScreenCenter:CGPointMake(_myLocation.location_x, _myLocation.location_y) duration:0.2];
+
+        return;
+    }
+    
+    if(_currentAnnotation) {
+        if([_myLocation.floorID isEqualToString:_currentAnnotation.annotationFloor]) {
+            [self addAnnotation:_currentAnnotation isShowPopView:YES setMapCenter:YES];
+        } else {
+            [self removeAnnotations];
+        }
+    }
+
     [self reloadMapWithBuilding:Indoormap_BuildId
                        andFloor:_myLocation.floorID];
+
+    
     
 }
 
@@ -199,25 +223,6 @@
 }
 
 #pragma mark - utilities
-
-- (void)drawMyLocationIfNeeded
-{
-    if(_myLocation==nil) {
-        [self removeMapViewLocationPoint];
-        
-    }
-
-    if([_myLocation.floorID isEqualToString:self.floor]) {
-        [self drawMobilePositioningPoint:CGPointMake(_myLocation.location_x, _myLocation.location_y)
-                                AndBuild:Indoormap_BuildId
-                                AndFloor:_myLocation.floorID
-                       locationImageName:@"YCIndoorMap.bundle/foot_navi_direction_normal"];
-    } else {
-        [self removeMapViewLocationPoint];;
-    }
-
-}
-
 
 
 
