@@ -205,17 +205,14 @@
     NSDictionary *item = navigationInfo[0];
 
     //移除pin点
-    if(_currentAnnotation!=nil) {
-        [self removeAnnotations];
-    }
+    _currentAnnotation = nil;
+    [self removeAnnotations];
 
     //调整视图
     [self reloadMapWithBuilding:Indoormap_BuildId
                        andFloor:item[@"floor"]];
     
     //绘制新的规划线路
-    [self removeAnnotations];
-
     self.navStartImage      = [UIImage imageNamed:@"YCIndoorMap.bundle/map_start"];
     self.navEndImage        = [UIImage imageNamed:@"YCIndoorMap.bundle/map_end"];
 
