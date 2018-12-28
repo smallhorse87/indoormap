@@ -610,7 +610,7 @@
     if(_viewModel.blueToothEnabled)
     {
         if(_viewModel.location) {
-            [_mapView adjustToMyLocation];
+            [_mapView moveToMyLocation];
         } else {
             [_viewModel onFetchContinuousLocReq];
         }
@@ -775,7 +775,7 @@
        && ![_mapView.floor isEqualToString:_viewModel.location.floorID]
        )
     {
-        [_mapView adjustToMyLocation];
+        [_mapView moveToMyLocation];
     }
 
     if(_viewModel.location!=nil){

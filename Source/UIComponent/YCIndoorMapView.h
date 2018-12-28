@@ -20,7 +20,7 @@ typedef void(^MapDidTap)(RTLbs3DAnnotation*);
 
 - (void)drawMyLocation:(IbeaconLocation*)location;
 
-- (void)adjustToMyLocation;
+- (void)moveToMyLocation;
 
 - (void)drawPinAnnotation:(RTLbs3DAnnotation*)annotation;
 

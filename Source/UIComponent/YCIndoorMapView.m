@@ -16,19 +16,14 @@
 
 #import "IndoorMapDefines.h"
 
-#import "RealtimeGuide.h"
-
 #define kScale 1500
 
 @interface YCIndoorMapView()
 {
     RTLbs3DAnnotation *_currentAnnotation;
-    
-    IbeaconLocation *_myLocation;
-    
-    int             zoomLevel;
+    IbeaconLocation   *_myLocation;
 
-
+    int               zoomLevel;
 }
 @end
 
@@ -57,7 +52,7 @@
     self.navigationMode    = RTLbsRoutePlanningModeNone;
 }
 
-#pragma mark - map
+#pragma mark - delegate
 - (void) mapViewDidTapOnMapPoint:(CGPoint)point poiName:(NSString*)poiName poiID:(NSString*)ID shapType:(NSInteger)type
 {
     RTLbs3DAnnotation * anno = [[RTLbs3DAnnotation alloc] initWithMapPoint:point
@@ -67,11 +62,6 @@
                                                                    floorID:self.floor];
     
     if(_mapDidTap) _mapDidTap(anno);
-}
-
-- (UIView*)mapViewWithAnnotationPopView:(RTLbs3DAnnotation *)anno
-{
-    return nil;
 }
 
 - (void) mapViewLoadedSuccess:(RTLbsMapView*)rtmapView
@@ -97,10 +87,88 @@
     }
 }
 
+#pragma mark - extern api
+
+- (void)reload:(NSString*)floor
+{
+    if([self.floor isEqualToString:floor])
+        return;
+    
+    if(_currentAnnotation!=nil) {
+        
+        if([_currentAnnotation.annotationFloor isEqualToString:floor]) {
+            [self addAnnotation:_currentAnnotation isShowPopView:YES setMapCenter:YES];
+            
+        } else {
+            [self removeAnnotations];
+        }
+        
+    }
+    
+    [self reloadMapWithBuilding:Indoormap_BuildId
+                       andFloor:floor];
+    
+}
+
+- (void)drawMyLocation:(IbeaconLocation*)location
+{
+    _myLocation = location;
+    
+    [self drawMyLocationIfNeeded];
+}
+
+- (void)moveToMyLocation
+{
+    //还未获取点
+    if(_myLocation==nil)
+        return;
+    
+    [self reloadMapWithBuilding:Indoormap_BuildId
+                       andFloor:_myLocation.floorID];
+    
+}
+
+- (void)drawPinAnnotation:(RTLbs3DAnnotation*)annotation
+{
+    if(_currentAnnotation!=nil)
+        [self removeAnnotations];
+    
+    _currentAnnotation = annotation;
+    
+    [self addAnnotation:annotation isShowPopView:YES setMapCenter:YES];
+    
+    if(![self.floor isEqualToString:annotation.annotationFloor]) {
+        
+        [self reloadMapWithBuilding:Indoormap_BuildId
+                           andFloor:annotation.annotationFloor];
+        
+    }
+    
+}
+
+- (void)moveToPinAnnotatin
+{
+    if(_currentAnnotation==nil)
+        return;
+    
+    if(![self.floor isEqualToString:_currentAnnotation.annotationFloor]) {
+
+        [self addAnnotation:_currentAnnotation isShowPopView:YES setMapCenter:YES];
+        
+        [self reloadMapWithBuilding:Indoormap_BuildId
+                           andFloor:_currentAnnotation.annotationFloor];
+        
+    } else {
+
+        [self mapViewPointMoveToScreenCenter:_currentAnnotation.location duration:0.2];
+    }
+    
+}
+
 - (void)cleanAll
 {
     if(_currentAnnotation!=nil)
-        [self removeAnnotationWith:_currentAnnotation];
+        [self removeAnnotations];
 
     [self removeNavAnnotationsAndNavLine];
 }
@@ -114,7 +182,7 @@
 
     //移除pin点
     if(_currentAnnotation!=nil) {
-        [self removeAnnotationWith:_currentAnnotation];
+        [self removeAnnotations];
     }
 
     //调整视图
@@ -129,6 +197,8 @@
 
     [self drawNavigationLine:(NSMutableArray*)navigationInfo floorId:floor];
 }
+
+#pragma mark - utilities
 
 - (void)drawMyLocationIfNeeded
 {
@@ -148,75 +218,7 @@
 
 }
 
-- (void)drawMyLocation:(IbeaconLocation*)location
-{
-    _myLocation = location;
 
-    [self drawMyLocationIfNeeded];
-}
-
-- (void)adjustToMyLocation
-{
-    //还未获取点
-    if(_myLocation==nil)
-        return;
-    
-    [self moveToMyLocation];
-    
-}
-
-- (void)moveToMyLocation
-{
-    //还未获取点
-    if(_myLocation==nil)
-        return;
-
-    [self reloadMapWithBuilding:Indoormap_BuildId
-                       andFloor:_myLocation.floorID];
-    
-}
-
-- (void)moveToPinAnnotatin
-{
-    if(_currentAnnotation==nil)
-        return;
-    
-    if(![self.floor isEqualToString:_myLocation.floorID]) {
-        [self reloadMapWithBuilding:Indoormap_BuildId
-                           andFloor:_currentAnnotation.annotationFloor];
-
-    }
-    
-}
-
-
-- (void)drawPinAnnotation:(RTLbs3DAnnotation*)annotation
-{
-    if(_currentAnnotation!=nil)
-        [self removeAnnotationWith:_currentAnnotation];
-
-    _currentAnnotation = annotation;
-    
-    [self addAnnotation:annotation isShowPopView:YES setMapCenter:YES];
-    
-    if(![self.floor isEqualToString:annotation.annotationFloor]) {
-        
-        [self reloadMapWithBuilding:Indoormap_BuildId
-                           andFloor:annotation.annotationFloor];
-
-    }
-
-
-}
-
-- (void)reload:(NSString*)floor
-{
-    if([self.floor isEqualToString:floor])
-        return;
-
-    [self reloadMapWithBuilding:Indoormap_BuildId
-                       andFloor:floor];
-}
 
 
 @end
