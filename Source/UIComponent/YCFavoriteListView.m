@@ -9,7 +9,7 @@
 #import "YCFavoriteListView.h"
 
 #import "ISWCategory.h"
-#import "Masonry.h"
+#import <Masonry.h>
 
 #import "IndoorMapBaseCell.h"
 

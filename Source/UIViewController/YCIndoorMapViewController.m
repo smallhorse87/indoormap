@@ -31,7 +31,7 @@
 
 #import "YCIndoorSearchViewController.h"
 
-#import "Masonry.h"
+#import <Masonry.h>
 
 @interface YCIndoorMapViewController ()<UINavigationControllerDelegate>
 {
