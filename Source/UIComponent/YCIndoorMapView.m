@@ -72,8 +72,6 @@
 {
     WEAKSELF
     
-    NSLog(@"松： zoom %lf",self.getMapviewZoomLevel);
-
     if(_currentAnnotation!=nil) {
         if([_currentAnnotation.annotationFloor isEqualToString:self.floor]) {
             [self addAnnotation:_currentAnnotation isShowPopView:YES setMapCenter:NO];

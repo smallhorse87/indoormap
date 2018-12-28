@@ -288,8 +288,6 @@
     
     self.hidden = NO;
     
-    NSLog(@"松 setupContent");
-    
     [self constructTable:floorArr];
     [_floorTable reloadData];
 
@@ -303,14 +301,11 @@
 
 - (void)locateToFloor:(NSString*)toFloor
 {
-    NSLog(@"松 locateToFloor");
     [self setupLocatedFloor:toFloor];
 }
 
 - (void)changeToFloor:(NSString*)toFloor
 {
-    NSLog(@"松 changeToFloor");
-
     [self setupSelectedFloor:toFloor];
     
     [self scrollToIdx:[self currentSelectedFloorIdx]];
