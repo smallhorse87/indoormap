@@ -16,7 +16,7 @@
 
 #import "IndoorMapDefines.h"
 
-#define kScale 1500
+#define kScale 30
 
 @interface YCIndoorMapView()
 {
@@ -24,6 +24,8 @@
     IbeaconLocation   *_myLocation;
 
     int               zoomLevel;
+    
+    CGPoint           _perferCenter;
 }
 @end
 
@@ -50,6 +52,7 @@
     self.compassPosition   = CGPointMake(33, 96);
     self.navLineWide       = 30;
     self.navigationMode    = RTLbsRoutePlanningModeNone;
+    
 }
 
 #pragma mark - delegate
@@ -68,6 +71,22 @@
 {
     WEAKSELF
     
+    NSLog(@"松： zoom %lf",self.getMapviewZoomLevel);
+
+    if(_currentAnnotation!=nil) {
+        if([_currentAnnotation.annotationFloor isEqualToString:self.floor]) {
+            [self addAnnotation:_currentAnnotation isShowPopView:YES setMapCenter:NO];
+            
+        } else {
+            [self removeAnnotations];
+        }
+    }
+
+    if(!CGPointEqualToPoint(_perferCenter, CGPointZero)) {
+        [self mapViewPointMoveToScreenCenter:_perferCenter duration:0.2];
+        _perferCenter = CGPointZero;
+    }
+
     if(_mapDidLoadSuc) {
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.mapDidLoadSuc();
@@ -91,17 +110,6 @@
 {
     if([self.floor isEqualToString:floor])
         return;
-    
-    if(_currentAnnotation!=nil) {
-        
-        if([_currentAnnotation.annotationFloor isEqualToString:floor]) {
-            [self addAnnotation:_currentAnnotation isShowPopView:YES setMapCenter:YES];
-            
-        } else {
-            [self removeAnnotations];
-        }
-        
-    }
     
     [self reloadMapWithBuilding:Indoormap_BuildId
                        andFloor:floor];
@@ -136,14 +144,8 @@
 
         return;
     }
-    
-    if(_currentAnnotation) {
-        if([_myLocation.floorID isEqualToString:_currentAnnotation.annotationFloor]) {
-            [self addAnnotation:_currentAnnotation isShowPopView:YES setMapCenter:YES];
-        } else {
-            [self removeAnnotations];
-        }
-    }
+
+    _perferCenter = CGPointMake(_myLocation.location_x, _myLocation.location_y);
 
     [self reloadMapWithBuilding:Indoormap_BuildId
                        andFloor:_myLocation.floorID];
@@ -159,13 +161,13 @@
     
     _currentAnnotation = annotation;
     
-    [self addAnnotation:annotation isShowPopView:YES setMapCenter:YES];
-    
     if(![self.floor isEqualToString:annotation.annotationFloor]) {
         
         [self reloadMapWithBuilding:Indoormap_BuildId
                            andFloor:annotation.annotationFloor];
         
+    } else {
+        [self addAnnotation:annotation isShowPopView:YES setMapCenter:YES];
     }
     
 }
@@ -176,9 +178,9 @@
         return;
     
     if(![self.floor isEqualToString:_currentAnnotation.annotationFloor]) {
-
-        [self addAnnotation:_currentAnnotation isShowPopView:YES setMapCenter:YES];
         
+        _perferCenter = _currentAnnotation.location;
+
         [self reloadMapWithBuilding:Indoormap_BuildId
                            andFloor:_currentAnnotation.annotationFloor];
         

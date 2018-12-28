@@ -636,6 +636,9 @@
 
 - (void)mapDidTap:(RTLbs3DAnnotation*)tappedAnnotation
 {
+    if(_viewModel.guideMode==YCGuideModeRealtimeGuiding)
+        return;
+
     tappedAnnotation.iconImage = [UIImage imageNamed:@"YCIndoorMap.bundle/icon_poi"];
     [_viewModel onTappedPointChanged:tappedAnnotation];
 }
