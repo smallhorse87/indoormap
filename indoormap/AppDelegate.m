@@ -10,8 +10,6 @@
 
 #import "ViewController.h"
 
-#import "IndoorMapContext.h"
-
 @interface AppDelegate ()
 
 @end
@@ -26,11 +24,8 @@
     self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:vc];
     [self.window makeKeyAndVisible];
 
-    //影秀城
-    //[IndoorMapContext startVerifyLicense:@"j3nTKx4fV6" buildingId:@"862700020040300001"];
-
-    //来福士
-    [IndoorMapContext startVerifyLicense:@"j3nTKx4fV6" buildingId:@"862700010030300032"];
+    //TODO:在这里填写授权号和商场编号
+    //[IndoorMapContext startVerifyLicense:@"" buildingId:@""];
     
     return YES;
 }

@@ -47,7 +47,6 @@
 		81A60EB521D46A7A00D9BE0C /* RtmapApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A60EB221D46A7A00D9BE0C /* RtmapApi.m */; };
 		81A60EB621D46A7A00D9BE0C /* YCMapLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A60EB321D46A7A00D9BE0C /* YCMapLocationService.m */; };
 		81A60EB921D4A1F400D9BE0C /* IndoorMapBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A60EB721D4A1F400D9BE0C /* IndoorMapBaseCell.m */; };
-		81BB0C5D21D5F07800320436 /* indoormap.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 81BB0C5C21D5F07800320436 /* indoormap.podspec */; };
 		9C6645B1939BA36418FF4D3D /* libPods-indoormap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 559451933D7A8F28AC9173C8 /* libPods-indoormap.a */; };
 /* End PBXBuildFile section */
 
@@ -131,7 +130,6 @@
 		81A60EB321D46A7A00D9BE0C /* YCMapLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCMapLocationService.m; sourceTree = "<group>"; };
 		81A60EB721D4A1F400D9BE0C /* IndoorMapBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndoorMapBaseCell.m; sourceTree = "<group>"; };
 		81A60EB821D4A1F400D9BE0C /* IndoorMapBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndoorMapBaseCell.h; sourceTree = "<group>"; };
-		81BB0C5C21D5F07800320436 /* indoormap.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = indoormap.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,7 +276,6 @@
 		818ACF4C21D3007800138683 = {
 			isa = PBXGroup;
 			children = (
-				81BB0C5C21D5F07800320436 /* indoormap.podspec */,
 				818ACF6E21D302A600138683 /* podfile */,
 				818ACF6F21D302A600138683 /* Source */,
 				818ACF5721D3007800138683 /* indoormap */,
@@ -383,7 +380,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81BB0C5D21D5F07800320436 /* indoormap.podspec in Resources */,
 				8151F53221D31C0A00A5089C /* YCIndoorMap.bundle in Resources */,
 				818ACF7021D302A600138683 /* podfile in Resources */,
 				8151F51621D30AEA00A5089C /* RtmapRes.bundle in Resources */,

@@ -8,9 +8,12 @@
 
 #import "ViewController.h"
 
+#import "YCIndoorMapViewController.h"
+
 #import <Masonry/Masonry.h>
 #import "ISWCategory.h"
-#import "YCIndoorMapViewController.h"
+
+#import "IndoorMapContext.h"
 
 @interface ViewController ()
 
@@ -57,12 +60,22 @@
 
 - (void)poiBtnPressed
 {
+    if(isEmptyString([IndoorMapContext getBuildingId])||isEmptyString([IndoorMapContext getLicense])) {
+        NSLog(@"请设置授权号和商场id");
+        return;
+    }
+    
     YCIndoorMapViewController *vc = [[YCIndoorMapViewController alloc] initWithKeyword:@"一点点" floor:@"B1"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)mapBtnPressed
 {
+    if(isEmptyString([IndoorMapContext getBuildingId])||isEmptyString([IndoorMapContext getLicense])) {
+        NSLog(@"请设置授权号和商场id");
+        return;
+    }
+
     YCIndoorMapViewController *vc = [[YCIndoorMapViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
