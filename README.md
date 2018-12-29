@@ -42,3 +42,6 @@ https://github.com/smallhorse87/indoormap/blob/master/1546053802910500.mp4
 - 我们的官网：http://www.inshowcity.com/
 - QQ：164790906
 - 邮箱：smallhorse87@163.com
+
+# Android版本源代码
+https://github.com/YzyCoding/RtMap
